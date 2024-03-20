@@ -4,8 +4,7 @@ import About from '../components/about/About'
 function HomePage() {
     return (
         <>
-            <h4>Welcome!!</h4>
-            <Home />
+            <Home/>
             <About/>
         </>
 

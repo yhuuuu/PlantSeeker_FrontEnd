@@ -1,8 +1,9 @@
 import React from 'react'
+import Identify from '../components/identify/Identify'
 
 function IdentifyPage() {
   return (
-    <div>IdentifyPage</div>
+    <Identify/>
   )
 }
 

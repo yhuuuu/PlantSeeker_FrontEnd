@@ -9,13 +9,13 @@ function Header() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">Identify</Nav.Link>
-            <Nav.Link href="#about">Plant Fav List</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/identify">Identify</Nav.Link>
+            <Nav.Link href="">Plant Fav List</Nav.Link>
             <NavDropdown title="Explore" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Specise</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

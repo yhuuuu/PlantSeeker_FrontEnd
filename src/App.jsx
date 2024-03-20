@@ -5,6 +5,7 @@ import './App.css'
 import Header from './components/header/Header'
 import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
+import IdentifyPage from './pages/IdentifyPage';
 
 
 
@@ -17,7 +18,7 @@ function App() {
       <Routes>
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<HomePage />} />
-        <Route path='/identify' element={<HomePage />} />
+        <Route path='/identify' element={<IdentifyPage />} />
       </Routes>
     </>
   )

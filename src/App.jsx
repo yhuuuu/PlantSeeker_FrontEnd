@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<HomePage />} />
-
+        <Route path='/identify' element={<HomePage />} />
       </Routes>
     </>
   )

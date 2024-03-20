@@ -19,7 +19,7 @@ function Home() {
         </ul>
         <hr className="my-4" /> Start Exploring Now
         <p>Get started on your plant identification journey today! Upload your first image and embark on a fascinating botanical adventure.</p>
-        <a className="btn btn-primary btn-lg" href="#" role="button">Sign Up/Login Button</a>
+        <a className="btn btn-primary btn-lg" href="#" role="button">start</a>
         {/* 
         [Sign Up/Login Button]
         [Demo Video/Image Showcase]

@@ -1,9 +1,10 @@
 import { useState } from "react"
 import axios from "axios";
+import IdentifyResult from "../IdentifyResult/IdentifyResult";
 
 function Identify() {
   const [imgUrl, setImgeUrl] = useState('')
-  //const [encodedUrl, setEncodedUrl] = useState('');
+  const [searchResult, setSearchResult] = useState(null)
   //const [uploadImgUrl, setupLoadImgUrl] = useState()
 
   const API_KEY = import.meta.env.VITE_API_KEY
@@ -14,10 +15,6 @@ function Identify() {
   async function handleSearch() {
     try {
       console.log('imgUrl in handleSearch:', imgUrl);
-      const encodedUrl = encodeURIComponent(imgUrl); // Encoding the URL
-      // console.log('encodedUrl:', encodedUrl);
-      // const res = await axios.get(`https://my-api.plantnet.org/v2/identify/all?api-key=${API_KEY}&images=${encodedUrl}`);
-
       const res = await axios({
         method: 'get',
         url: `https://my-api.plantnet.org/v2/identify/all`,
@@ -25,20 +22,21 @@ function Identify() {
         params: {
           images: imgUrl,
           'include-related-images': true,
-          'no-reject':false,
+          'no-reject': false,
           'lang': 'en',
           'api-key': API_KEY
         },
       })
-
+      
       console.log('Response:', res.data);
+      // Update the state with fetch data
+      setSearchResult(res.data)
+
       // Handle response data here
     } catch (error) {
       console.error('Error fetching data:', error);
       // Handle error
     }
-
-
   }
 
 
@@ -70,6 +68,9 @@ function Identify() {
           onChange={handleInputImgURLChange}
           placeholder="Or uplod using imageURL" />
         <button onClick={handleSearch}> Search Upload URL</button>
+
+        {/* Conditionally render the SearchResult component if searchResult is not null */}
+      {searchResult && <IdentifyResult result={searchResult} />}
       </div>
 
     </div>

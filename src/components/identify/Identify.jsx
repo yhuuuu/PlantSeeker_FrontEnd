@@ -1,6 +1,10 @@
-
+import { useState } from "react"
 
 function Identify() {
+const [imgUrl, setImgeUrl] = useState()
+const [uploadImgUrl, setupLoadImgUrl] = useState()
+console.log(import.meta.env.VITE_API_KEY)
+  
 
   return ( 
       <div className="identify-container" >

@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Header from './components/header/Header'
-import Home from './components/home/Home'
-import About from './components/about/About'
+import HomePage from './pages/HomePage';
+import NotFound from './pages/NotFound';
+
 
 
 function App() {
@@ -12,8 +14,11 @@ function App() {
   return (
     <>
       <Header/>
-      <Home/>
-      <About/>
+      <Routes>
+        <Route path='*' element={<NotFound />} />
+        <Route path='/' element={<HomePage />} />
+
+      </Routes>
     </>
   )
 }

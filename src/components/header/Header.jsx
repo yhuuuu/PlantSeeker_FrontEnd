@@ -14,17 +14,12 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#contact">Contatc</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <Nav.Link href="#about">Identify</Nav.Link>
+            <Nav.Link href="#about">Plant Fav List</Nav.Link>
+            <NavDropdown title="Explore" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Specise</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              Plant Disease List
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

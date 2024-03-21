@@ -16,12 +16,14 @@ function App() {
 
   return (
     <>
-      <Header/>
+      <Header />
       <Routes>
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<HomePage />} />
         <Route path='/identify' element={<IdentifyPage />} />
-        <Route path='/identify/plants/:id' element={<PlantDetailPage/>} />
+        <Route path='/identify/plants/:id' element={<PlantDetailPage />} />
+       
+
       </Routes>
     </>
   )

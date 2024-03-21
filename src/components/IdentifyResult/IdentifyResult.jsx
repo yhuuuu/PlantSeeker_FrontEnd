@@ -1,8 +1,14 @@
 import React from 'react'
+import IdentifyResultCard from '../identityResultCard/IdentifyResultCard'
 
-function IdentifyResult(searchResult) {
+function IdentifyResult({results}) {
+   console.log(results);
   return (
-    <div>IdentifyResult</div>
+    <div className='result-conatiner'>
+        {results.slice(0,5).map((matchPlant,index)=>(
+            <IdentifyResultCard key={index} plant={matchPlant}/>
+        ))}
+    </div>
   )
 }
 

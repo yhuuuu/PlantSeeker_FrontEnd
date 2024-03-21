@@ -4,7 +4,7 @@ import IdentifyResult from "../IdentifyResult/IdentifyResult";
 
 function Identify() {
   const [imgUrl, setImgeUrl] = useState('')
-  const [searchResult, setSearchResult] = useState(null)
+  const [searchResults, setSearchResults] = useState([])
   //const [uploadImgUrl, setupLoadImgUrl] = useState()
 
   const API_KEY = import.meta.env.VITE_API_KEY
@@ -24,13 +24,13 @@ function Identify() {
           'include-related-images': true,
           'no-reject': false,
           'lang': 'en',
-          'api-key': API_KEY
+          'api-key': API_KEY,
         },
       })
       
       console.log('Response:', res.data);
       // Update the state with fetch data
-      setSearchResult(res.data)
+      setSearchResults(res.data.results)
 
       // Handle response data here
     } catch (error) {
@@ -70,7 +70,7 @@ function Identify() {
         <button onClick={handleSearch}> Search Upload URL</button>
 
         {/* Conditionally render the SearchResult component if searchResult is not null */}
-      {searchResult && <IdentifyResult result={searchResult} />}
+      {searchResults && <IdentifyResult results={searchResults} />}
       </div>
 
     </div>

@@ -4,12 +4,12 @@ function IdentifyResultCard({ plant }) {
   console.log("plant:", plant);
 
   function handlePlantDetailbtn() {
-    
-
+    // btn direct to the plant detail 
   }
   return (
-    <Link to={`/identify/plants/${plant.gbif.id}`}>
-      <div>
+    <div>
+      {/* Passing the plantData object as state, which contains information about the plant. */}
+      <Link to={`/identify/plants/${plant.gbif.id}`} state={{ plantData: plant }} >
         <p>{plant.species.scientificName}</p>
         <p>{plant.species.commonNames[0]}</p>
         <p>{plant.score}</p>
@@ -18,11 +18,12 @@ function IdentifyResultCard({ plant }) {
             <img src={`${image.url.s}`} alt="" key={index} />
           ))}
         </div>
+      </Link>
 
-        <button>Add to Fav List</button>
-        <button onClick={handlePlantDetailbtn}> Check out plant detail</button>
-      </div>
-    </Link>
+      <button>Add to Fav List</button>
+      <button onClick={handlePlantDetailbtn}> Check out plant detail</button>
+    </div>
+
   )
 }
 

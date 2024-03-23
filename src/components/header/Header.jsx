@@ -15,7 +15,7 @@ function Header() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/identify">Identify</Nav.Link>
-            <Nav.Link href="">Plant Fav List</Nav.Link>
+            <Nav.Link href="/favoriteList">Plant Fav List</Nav.Link>
             <NavDropdown title="Explore" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Specise</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

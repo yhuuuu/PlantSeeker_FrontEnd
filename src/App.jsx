@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
 import IdentifyPage from './pages/IdentifyPage';
 import PlantDetailPage from './pages/PlantDetailPage';
+import FavListPage from './pages/FavListPage';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/identify' element={<IdentifyPage />} />
         <Route path='/identify/plants/:id' element={<PlantDetailPage />} />
+        <Route path='/favoriteList' element={<FavListPage />} />
        
 
       </Routes>

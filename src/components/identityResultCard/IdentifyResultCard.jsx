@@ -2,7 +2,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function IdentifyResultCard({ plant }) {
-  console.log("plant:", plant);
+
 
   async function addToFavorites(){
     try{

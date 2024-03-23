@@ -11,6 +11,7 @@ function Identify() {
 
   const API_KEY = import.meta.env.VITE_API_KEY
 
+  // Function to fetch API by image url
   async function handleApiSearchByURL() {
     try {
       console.log('imgUrl in searchByURL:', imgUrl);
@@ -75,14 +76,12 @@ function Identify() {
     }
   }
 
-
-
   // Function to handle file selection
   function handleFileChange(e) {
     setSelectedFile(e.target.files[0]);
   }
 
-
+  // Function for handle image URL input change
   const handleInputImgURLChange = (e) => {
     setImgeUrl(e.target.value)
   }
@@ -91,7 +90,7 @@ function Identify() {
 
   return (
     <div className="identify-container" >
-      
+
 
       <div className="input-group mb-3">
         <input type="file" className="form-control" id="inputGroupFile02" onChange={handleFileChange} />
@@ -107,10 +106,10 @@ function Identify() {
           placeholder="Or uplod using imageURL" />
         <button onClick={handleApiSearchByURL}> Search Upload URL</button>
 
-        {/* Conditionally render the SearchResult component if searchResult is not null */}
-       
       </div>
+
       {/* Conditionally render the SearchResult component if searchResult is not null */}
+      
       {uploadSearchResults && <IdentifyResult results={uploadSearchResults} />}
       {searchResults && <IdentifyResult results={searchResults} />}
     </div>

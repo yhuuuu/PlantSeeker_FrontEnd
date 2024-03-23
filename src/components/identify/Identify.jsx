@@ -75,6 +75,8 @@ function Identify() {
     }
   }
 
+
+
   // Function to handle file selection
   function handleFileChange(e) {
     setSelectedFile(e.target.files[0]);
@@ -89,13 +91,7 @@ function Identify() {
 
   return (
     <div className="identify-container" >
-      <div>
-        Query
-        Identify / Contribute to Pl@ntNet
-        The observation can only have up to 4 pictures of the same plant
-        At least one photo of leaf, flower, fruit or bark is required for identification to work
-        It is recommended to use images with these dimensions x: 1280px
-      </div>
+      
 
       <div className="input-group mb-3">
         <input type="file" className="form-control" id="inputGroupFile02" onChange={handleFileChange} />

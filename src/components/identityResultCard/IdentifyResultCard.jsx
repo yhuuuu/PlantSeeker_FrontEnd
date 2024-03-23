@@ -1,7 +1,28 @@
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 function IdentifyResultCard({ plant }) {
   console.log("plant:", plant);
+
+  async function addToFavorites(){
+    try{
+      const data = {
+        plant_scientific_name:`${plant.species.scientificName}`,
+        plant_common_name:`${plant.species.commonNames}`,
+        plant_family: `${plant.species.family.scientificName}`,
+        plant_genus:`${plant.species.genus.scientificName}`,
+        description:''
+      }
+      const res = await axios.post('http://localhost:3000/api/favorites',data) 
+      console.log('success');
+      console.log("resdata",res)
+
+    }catch(error){
+      console.error(error);
+    }
+
+  }
+
 
   function handlePlantDetailbtn() {
     // btn direct to the plant detail 
@@ -20,7 +41,7 @@ function IdentifyResultCard({ plant }) {
         </div>
       </Link>
 
-      <button>Add to Fav List</button>
+      <button onClick={addToFavorites}>Add to Fav List</button>
       <button onClick={handlePlantDetailbtn}> Check out plant detail</button>
     </div>
 

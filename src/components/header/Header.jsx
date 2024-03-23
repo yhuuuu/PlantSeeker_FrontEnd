@@ -17,10 +17,7 @@ function Header() {
             <Nav.Link href="/identify">Identify</Nav.Link>
             <Nav.Link href="/favoriteList">Plant Fav List</Nav.Link>
             <NavDropdown title="Explore" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Specise</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-              Plant Disease List
-              </NavDropdown.Item>
+              <NavDropdown.Item href="/plantDisease"> Plant Disease List </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

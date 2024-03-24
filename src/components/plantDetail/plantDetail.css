@@ -1,0 +1,26 @@
+.plant-detail-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .plant-detail-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .plant-detail-info {
+    margin-bottom: 15px;
+  }
+  
+  .plant-detail-info h6 {
+    margin-bottom: 5px;
+  }
+  
+  .plant-image {
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }

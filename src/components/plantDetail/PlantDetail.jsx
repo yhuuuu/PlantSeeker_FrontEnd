@@ -8,16 +8,31 @@ function PlantDetail({ plantData }) {
 
 
   return (
-    <>
-      
-      <PlantImgSlide images={images}/>
-      <div>Scientific Name: {species.scientificName}</div>
-      <div>Common Name:{species.commonNames[0]}</div>
-      <div>Family:{species.family.scientificName} </div>
-      <div>Genus:{species.genus.scientificName}</div>
-      <div>Gbif:{gbif.id}</div>
 
-    </>
+    <div className="plant-detail-container">
+      <PlantImgSlide images={images} />
+      <div className="plant-detail-info">
+        <h6>Scientific Name:</h6>
+        <p>{species.scientificName}</p>
+      </div>
+      <div className="plant-detail-info">
+        <h6>Common Name:</h6>
+        <p>{species.commonNames[0]}</p>
+      </div>
+      <div className="plant-detail-info">
+        <h6>Family:</h6>
+        <p>{species.family.scientificName}</p>
+      </div>
+      <div className="plant-detail-info">
+        <h6>Genus:</h6>
+        <p>{species.genus.scientificName}</p>
+      </div>
+      <div className="plant-detail-info">
+        <h6>Gbif:</h6>
+        <p>{gbif.id}</p>
+      </div>
+    </div>
+
   )
 }
 

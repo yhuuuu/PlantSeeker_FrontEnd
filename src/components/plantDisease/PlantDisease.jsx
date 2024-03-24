@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 
 function PlantDisease() {
-    const [plantDiseaseList, setPlantDiseaseList] = useState()
+    const [plantDiseaseList, setPlantDiseaseList] = useState([])
 
     const API_KEY_PERENUAL = import.meta.env.VITE_API_KEY_PERENUAL
     useEffect(() => {
@@ -21,7 +21,7 @@ function PlantDisease() {
 
                 console.log('Response:', res.data);
                 // Update the state with fetch data
-                setPlantDiseaseList(res.data)
+                setPlantDiseaseList(res.data.data)
 
                 // Handle response data here
             } catch (error) {
@@ -35,7 +35,13 @@ function PlantDisease() {
     }, []) // fetch only once after initial render
 
     return (
-        <div>PlantDiseaseComponent</div>
+        <div>
+            <h1>Plant Disease List</h1>
+
+            {plantDiseaseList.map((disease, index) => (
+                <h6 key ={index}>{disease.common_name}</h6>
+            ))}
+        </div>
     )
 }
 

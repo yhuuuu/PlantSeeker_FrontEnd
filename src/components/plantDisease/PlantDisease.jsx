@@ -1,46 +1,93 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import PlantDiseaseCard from '../plantDieaseCard/PlantDiseaseCard'
 
 
 function PlantDisease() {
     const [plantDiseaseList, setPlantDiseaseList] = useState([])
+    const [paginationInfo, setPaginationInfo] = useState(null)
 
     const API_KEY_PERENUAL = import.meta.env.VITE_API_KEY_PERENUAL
-    useEffect(() => {
-        async function getPlantDisease() {
-            console.log(API_KEY_PERENUAL);
-            try {
-                const res = await axios({
-                    method: 'get',
-                    url: `https://perenual.com/api/pest-disease-list`,
-                    params: {
-                        key: API_KEY_PERENUAL,
-                        page: 1
-                    }
-                })
 
-                console.log('Response:', res.data);
-                // Update the state with fetch data
-                setPlantDiseaseList(res.data.data)
+    //set default page number equal to 1
+    async function getPlantDisease(pageNumber = 1) {
+        console.log('Fetching plant disease data for page:', pageNumber);
+        try {
+            const res = await axios({
+                method: 'get',
+                url: `https://perenual.com/api/pest-disease-list`,
+                params: {
+                    key: API_KEY_PERENUAL,
+                    page: pageNumber
+                }
+            })
 
-                // Handle response data here
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                // Handle error
-            }
+            console.log('Response:', res.data);
+            // Update the state with fetch data
+            setPlantDiseaseList(res.data.data)
+            // set pagination info from response data
+            setPaginationInfo({
+                currentPage: res.data.current_page,
+                lastPage: res.data.last_page,
+                totalItem: res.data.total
+            })
+
+            // Handle response data here
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Handle error
         }
-
+    }
+    useEffect(() => {
         getPlantDisease()
 
     }, []) // fetch only once after initial render
 
+    // Function handle page change
+    function handlePageChange(pageNumber) {
+        console.log('Page changed to:', pageNumber);
+        getPlantDisease(pageNumber)
+    }
     return (
         <div>
             <h1>Plant Disease List</h1>
 
             {plantDiseaseList.map((disease, index) => (
-                <h6 key ={index}>{disease.common_name}</h6>
+
+                <PlantDiseaseCard disease={disease} key={index} />
+
             ))}
+
+            {/* pagination */}
+
+            {paginationInfo && (
+                <div>
+                    {/* Perviouse Page */}
+                    <button
+                        disabled={paginationInfo.currentPage === 1}
+                        onClick={() => (handlePageChange(paginationInfo.currentPage - 1))}>Pervious Page
+                    </button>
+
+                    {/* Pages */}
+
+                    {Array.from({ length: paginationInfo.lastPage }, (_, i) => i + 1).map((page) => (
+                        <button
+                            key={page}
+                            disabled={paginationInfo.currentPage === page}
+                            onClick={() => handlePageChange(page)}
+                        >
+                            {page}
+                        </button>
+                    ))}
+
+                    {/* Next Page */}
+                    <button
+                        disabled={paginationInfo.currentPage === paginationInfo.lastPage}
+                        onClick={() => (handlePageChange(paginationInfo.currentPage + 1))}
+                    > Next Page
+                    </button>
+                </div>
+            )}
         </div>
     )
 }

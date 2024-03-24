@@ -1,8 +1,9 @@
 import { useState } from "react"
 import axios from "axios";
 import IdentifyResult from "../IdentifyResult/IdentifyResult";
-FormData
+import identify_search from "../../images/identifyPage/question.png"
 
+import './identify.css'
 function Identify() {
   const [imgUrl, setImgeUrl] = useState('')
   const [searchResults, setSearchResults] = useState([])
@@ -91,27 +92,52 @@ function Identify() {
   return (
     <div className="identify-container" >
 
+      <div className="identify-description">
+        <h4>How It Works</h4>
+        <ul className="text-start">
+          <li>
+            <strong>Upload Your Picture: </strong>
+            Upload an image from your deskstop or image url. (* image must be .jpeg or .png format) </li>
+          <li>
+            <strong>Instant Identification: </strong>
+            Our powerful AI technology analyzes the image and provides accurate identification results within seconds.</li>
+          <li>
+            <strong>Explore Plant Details: </strong>
+            Dive deeper into the world of plants with comprehensive information including species, common names, scientify name, and more.</li>
+        </ul>
 
-      <div className="input-group mb-3">
-        <input type="file" className="form-control" id="inputGroupFile02" onChange={handleFileChange} />
-        <button onClick={handleUpload} className="input-group-text" htmlFor="inputGroupFile02">Upload
-        </button>
+        <div >
+          <img src={identify_search} alt="" />
+        </div>
 
       </div>
 
-      <div>
-        <input type="text"
-          value={imgUrl}
-          onChange={handleInputImgURLChange}
-          placeholder="Or uplod using imageURL" />
-        <button onClick={handleApiSearchByURL}> Search Upload URL</button>
+      <div className="identify-search">
+        <div className="input-group mb-3">
+          <input type="file" className="form-control" onChange={handleFileChange} />
+          <button onClick={handleUpload} className="input-group-text" > Search Image
+          </button>
 
+        </div>
+
+        <div className="input-group mb-3">
+          <input class="form-control" type="text"
+            value={imgUrl}
+            onChange={handleInputImgURLChange}
+            placeholder="Upload using image URL" />
+          <button className="input-group-text" onClick={handleApiSearchByURL}> Search  URL</button>
+
+        </div>
       </div>
 
       {/* Conditionally render the SearchResult component if searchResult is not null */}
-      
-      {uploadSearchResults && <IdentifyResult results={uploadSearchResults} />}
-      {searchResults && <IdentifyResult results={searchResults} />}
+      <div className="identify-search-result">
+
+        {uploadSearchResults && <IdentifyResult results={uploadSearchResults} />}
+        {searchResults && <IdentifyResult results={searchResults} />}
+        
+      </div>
+
     </div>
 
   )

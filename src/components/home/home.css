@@ -1,3 +1,53 @@
 .jumbotron{
     margin: 20px;
+    /* padding: 20px; */
+}
+
+h1{
+    margin: 40px 20px;
+}
+
+.home-box-1{
+    display: flex;
+}
+.home-box-1-left{
+    width: 40%;
+    margin: 40px;
+    display: flex;
+    align-items: center;
+}
+.home-box-1-right {
+    background-color: #ebe2d34e;
+    padding: 20px;
+    border-radius: 20px;
+}
+.home-box-1-right-text-1 {
+    font-size: 25px;
+    margin: 0 0 20px; /* Adjusted margin */
+    text-align: justify; /* Align text justify */
+}
+.home-box-1-right-text-2 {
+    font-size: 20px;
+    margin: 10px 0; 
+    text-align: justify; 
+}
+
+
+
+.btn-primary {
+    background-color: #b4bfa4; 
+    border-color: #b4bfa4; 
+    color: #fff; 
+    padding: 10px 20px; 
+    font-size: 18px; 
+
+} 
+
+.btn-primary:hover {
+    background-color: #4b684d; 
+    border-color: #4b684d; 
+} 
+.btn{
+    display: flex;
+    justify-content: center;
 }

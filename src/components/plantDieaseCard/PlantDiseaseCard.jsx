@@ -6,12 +6,12 @@ function PlantDiseaseCard({ disease }) {
     const imageUrl = images && images.length > 0 ? images[0].thumbnail : null;
     return (
         <div className='plantDisease-card'>
-            <h5>{common_name}</h5>
+            <h4>{common_name}</h4>
             <img src={imageUrl} alt={common_name} />
 
             {description.map((des, index) => (
                 <div key={index}>
-                    <h6>{des.subtitle}</h6>,
+                    <h6>{des.subtitle}</h6>
                     <p>{des.description}</p>
                 </div>
             ))}

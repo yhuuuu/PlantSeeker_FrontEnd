@@ -10,3 +10,16 @@
 body{
   background-color: #fffff5;
 }
+
+h1{
+    margin: 40px 20px;
+}
+
+h5,h6 {
+  margin: 5px;
+  color: #4b684d;
+}
+
+a {
+  text-decoration: none;
+}

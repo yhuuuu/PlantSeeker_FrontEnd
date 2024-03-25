@@ -2,6 +2,7 @@ import { useState } from "react"
 import axios from "axios";
 import IdentifyResult from "../IdentifyResult/IdentifyResult";
 import identify_search from "../../images/identifyPage/question.png"
+import pageLoader from "../../images/identifyPage/watering-can.gif"
 
 import './identify.css'
 function Identify() {
@@ -10,6 +11,7 @@ function Identify() {
   const [selectedFile, setSelectedFile] = useState()
   const [uploadSearchResults, setUploadSearchResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [searchMethod, setSearchMethod] = useState(null)
   const API_KEY = import.meta.env.VITE_API_KEY
 
   // Function to fetch API by image url
@@ -90,7 +92,12 @@ function Identify() {
     setImgeUrl(e.target.value)
   }
 
-
+  // Function to set search method and excute the corresponding search
+  const handleSearch = (method) => {
+    setSearchMethod(method)
+    setIsLoading(true)
+    method === "URL" ? handleApiSearchByURL() : handleUpload()
+  }
 
   return (
     <div className="identify-container" >
@@ -118,9 +125,8 @@ function Identify() {
       <div className="identify-search">
         <div className="input-group mb-3">
           <input type="file" className="form-control" onChange={handleFileChange} />
-          <button onClick={handleUpload} className="input-group-text" > Search Image
+          <button onClick={() => handleSearch("Upload")} className="input-group-text" > Search Image
           </button>
-          {isLoading ? <p>Loading...</p> : null}
 
         </div>
 
@@ -129,15 +135,20 @@ function Identify() {
             value={imgUrl}
             onChange={handleInputImgURLChange}
             placeholder="Upload using image URL" />
-          <button className="input-group-text" onClick={handleApiSearchByURL}> Search  URL</button>
-          {isLoading ? <p>Loading...</p> : null}
+          <button className="input-group-text" onClick={() => handleSearch("URL")}> Search  URL</button>
+
         </div>
+        {isLoading ? <h6 className="loaderText">Loading... <img className="pageLoader" src={pageLoader} alt="" /></h6> : null}
       </div>
 
-      {/* Conditionally render the SearchResult component if searchResult is not null */}
+
       <div className="identify-search-result">
-        {uploadSearchResults && <IdentifyResult results={uploadSearchResults} />}
-        {searchResults && <IdentifyResult results={searchResults} />}
+
+        {/* Display search results */}
+        {searchMethod === "Upload" && (
+          uploadSearchResults && <IdentifyResult results={uploadSearchResults} />)
+        }
+        {searchMethod === "URL" && <IdentifyResult results={searchResults} />}
 
       </div>
 

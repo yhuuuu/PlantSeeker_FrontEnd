@@ -46,3 +46,6 @@
     cursor: pointer;
 }
 
+.pageLoader{
+    width: 50px;
+}

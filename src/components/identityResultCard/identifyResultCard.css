@@ -44,9 +44,4 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
   }
 
-  .add-to-fav{
-    background-color: transparent;
-    border: 0;
-    font-size: 15px;
-    color: white;
-  }
+  

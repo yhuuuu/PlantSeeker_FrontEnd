@@ -10,7 +10,7 @@ function PlantDetail({ plantData }) {
   const { images, species, gbif } = plantData
   const [isClicked, setIsClicked] = useState(false)
   async function addToFavorites() {
-   // console.log(plantData);
+    // console.log(plantData);
     try {
       const data = {
         plant_scientific_name: `${plantData.species.scientificName}`,
@@ -28,7 +28,7 @@ function PlantDetail({ plantData }) {
     }
 
   }
-  function handleClick(){
+  function handleClick() {
     setIsClicked(true)
     addToFavorites()
   }
@@ -42,31 +42,35 @@ function PlantDetail({ plantData }) {
       </div>
 
       <div className="plant-detail-description">
-        <div className="plant-detail-info">
-          <h6>Scientific Name:</h6>
-          <p>{species.scientificName}</p>
+        <div className="plant-detail-info-container">
+          <div className="plant-detail-info">
+            <h6>Scientific Name:</h6>
+            <p>{species.scientificName}</p>
+          </div>
+          <div className="plant-detail-info">
+            <h6>Common Name:</h6>
+            <p>{species.commonNames[0]}</p>
+          </div>
+          <div className="plant-detail-info">
+            <h6>Family:</h6>
+            <p>{species.family.scientificName}</p>
+          </div>
+          <div className="plant-detail-info">
+            <h6>Genus:</h6>
+            <p>{species.genus.scientificName}</p>
+          </div>
+          <div className="plant-detail-info">
+            <h6>Gbif:</h6>
+            <p>{gbif.id}</p>
+          </div>
         </div>
-        <div className="plant-detail-info">
-          <h6>Common Name:</h6>
-          <p>{species.commonNames[0]}</p>
-        </div>
-        <div className="plant-detail-info">
-          <h6>Family:</h6>
-          <p>{species.family.scientificName}</p>
-        </div>
-        <div className="plant-detail-info">
-          <h6>Genus:</h6>
-          <p>{species.genus.scientificName}</p>
-        </div>
-        <div className="plant-detail-info">
-          <h6>Gbif:</h6>
-          <p>{gbif.id}</p>
+
+        <div className="plant-detail-addToFavBtn">
+          <button className='plant-detail-addToFavBtn' onClick={handleClick}><img src={whishlistIcon} />{isClicked ? 'Added' : ''}</button>
         </div>
       </div>
-      
-      <div className="plant-detail-addToFavBtn">
-      <button className ='add-to-fav'onClick={handleClick}><img src= {whishlistIcon}/>{isClicked?'Added':''}</button>
-      </div>
+
+
     </div>
 
   )

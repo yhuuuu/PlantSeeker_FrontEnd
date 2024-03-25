@@ -19,8 +19,20 @@
   background-color: #ebe2d3;
   border: 10px dashed white;
   border-radius: 20px;
+  display: flex;
 }
 
 .plant-detail-image-container {
   width: 50%;
 }
+.plant-detail-addToFavBtn{
+    background-color: transparent;
+    border: 0;
+    font-size: 15px;
+    display: inline-flex;
+    
+  }
+
+  .plant-detail-info-container{
+    width: 90%;
+  }

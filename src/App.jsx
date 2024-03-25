@@ -27,7 +27,7 @@ function App() {
         <Route path='/favoriteList' element={<FavListPage />} />
         <Route path='/plantDisease' element={<PlantDiseasePage />} />
       </Routes>
-      <Footer/>
+     
     </>
   )
 }

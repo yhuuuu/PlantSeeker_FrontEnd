@@ -2,11 +2,15 @@
 import axios from "axios";
 import PlantImgSlide from "../plantImgSlide/PlantImgSlide";
 import './plantDetail.css'
+import whishlistIcon from '../../images/identifyPage/wishlist.png'
+import { useState } from "react";
+
 
 function PlantDetail({ plantData }) {
   const { images, species, gbif } = plantData
+  const [isClicked, setIsClicked] = useState(false)
   async function addToFavorites() {
-   
+   // console.log(plantData);
     try {
       const data = {
         plant_scientific_name: `${plantData.species.scientificName}`,
@@ -23,6 +27,10 @@ function PlantDetail({ plantData }) {
       console.error(error);
     }
 
+  }
+  function handleClick(){
+    setIsClicked(true)
+    addToFavorites()
   }
 
 
@@ -57,7 +65,7 @@ function PlantDetail({ plantData }) {
       </div>
       
       <div className="plant-detail-addToFavBtn">
-        <button onClick={addToFavorites}>+</button>
+      <button className ='add-to-fav'onClick={handleClick}><img src= {whishlistIcon}/>{isClicked?'Added':''}</button>
       </div>
     </div>
 

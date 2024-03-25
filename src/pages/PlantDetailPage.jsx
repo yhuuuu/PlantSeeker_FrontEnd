@@ -10,7 +10,7 @@ function PlantDetailPage() {
     console.log("locationState",location.state);
     const  {plantData}  = location.state; // Access the plant object from location state
 
-    console.log("Plant data:", plantData);
+
 
     return (
         <div>

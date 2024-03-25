@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import './identifyResultCard.css'
 
 function IdentifyResultCard({ plant }) {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate(); // Move useNavigate hook to the top level
+
 
   async function addToFavorites() {
     try {

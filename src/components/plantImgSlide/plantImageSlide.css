@@ -1,0 +1,22 @@
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.carousel-button img {
+    width: 30px;
+    height: 30px;
+}
+
+.image-slide img{
+    max-width: 500px;
+    height: 500px;
+    border-radius: 10px;
+}

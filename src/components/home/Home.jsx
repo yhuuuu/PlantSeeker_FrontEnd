@@ -13,26 +13,26 @@ function Home() {
         <div div className="home-box-1-right">
           <h2>Welcome to PlantSeeker!</h2>
           <p className="home-box-1-right-text-1 text-start">
-            Discover the beauty of nature with our advanced plant identification tool. Whether you're a seasoned botanist or just starting your journey into the world of plants, our app makes it easy to identify and learn about the flora around you.
+            Explore nature's beauty with our advanced plant identification tool. Whether you're a seasoned botanist or new to plant exploration, our app makes it easy to identify and learn about the flora around you.
           </p>
 
 
           <div className="home-box-1-right-text-2">
             <h5>Features</h5>
             <ul className="text-start">
-              <li>Instant Identification: Our powerful AI technology analyzes the image and provides accurate identification results within seconds.
+              <li>Instant Identification: Our powerful AI analyzes images and provides accurate results within seconds.
               </li>
-              <li>Save Favorites: Keep track of your favorite plants by saving them to your personalized list
+              <li>Save Favorites: Keep track of your preferred plants by adding them to your personalized list.
               </li>
               <li>Educational Resources: Learn about plant diseases, gardening tips, and interesting facts to nurture your green thumb.
               </li>
             </ul>
 
             <p className="text-start">
-              Get started on your plant identification journey today! Upload your first image and embark on a fascinating botanical adventure.
+            Start your plant identification journey today! Upload your first image and dive into a fascinating botanical adventure.
             </p>
-            <div className="btn">
-              <a className="btn btn-primary btn-lg" href="/identify" role="button">Start Exploring Now</a>
+            <div className="home-btn">
+              <a className="btn" href="/identify" role="button">Start Exploring Now</a>
             </div>
 
           </div>

@@ -1,49 +1,60 @@
-.jumbotron{
+.jumbotron {
     margin: 20px;
-    /* padding: 20px; */
 }
 
-.home-box-1{
+.home-box-1 {
     display: flex;
 }
-.home-box-1-left{
+
+.home-box-1-left {
     width: 40%;
     margin: 40px;
     display: flex;
     align-items: center;
 }
+
 .home-box-1-right {
     background-color: #ebe2d34e;
-    padding: 20px;
+    padding: 50px;
     border-radius: 20px;
 }
+
 .home-box-1-right-text-1 {
-    font-size: 25px;
-    margin: 0 0 20px; /* Adjusted margin */
-    text-align: justify; /* Align text justify */
+    font-size: 22px;
+    margin-bottom: 10px; 
 }
+
 .home-box-1-right-text-2 {
     font-size: 20px;
     margin: 10px 0; 
     text-align: justify; 
 }
 
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
 
-
-.btn-primary {
+.btn {
     background-color: #b4bfa4; 
     border-color: #b4bfa4; 
     color: #fff; 
     padding: 10px 20px; 
     font-size: 18px; 
+    cursor: pointer; 
+    
+}
+.home-btn{
+    display: flex;
+    justify-content: center;
+}
 
-} 
-
-.btn-primary:hover {
+.btn:hover {
     background-color: #4b684d; 
     border-color: #4b684d; 
-} 
-.btn{
+}
+
+.home-box-1-right h5 {
     display: flex;
     justify-content: center;
 }

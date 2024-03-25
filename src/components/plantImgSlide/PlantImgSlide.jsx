@@ -5,7 +5,7 @@ import arrowBtn from '../../images/arrow-button.png'
 
 
 function PlantImgSlide({ images }) {
-    console.log('images', images);
+    // console.log('images', images);
 
     const [index, setIndex] = useState(0);
     const delay = 5000 //Delay between slides in milliseconds 

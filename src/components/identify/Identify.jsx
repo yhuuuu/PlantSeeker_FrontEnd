@@ -103,7 +103,7 @@ function Identify() {
     <div className="identify-container" >
 
       <div className="identify-description">
-        <h4>How It Works</h4>
+        <h2>How It Works</h2>
         <ul className="text-start">
           <li>
             <strong>Upload Your Picture: </strong>

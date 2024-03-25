@@ -14,7 +14,7 @@ function IdentifyResultCard({ plant }) {
         plant_common_name: `${plant.species.commonNames}`,
         plant_family: `${plant.species.family.scientificName}`,
         plant_genus: `${plant.species.genus.scientificName}`,
-        description: ''
+        notes: ''
       }
       const res = await axios.post('http://localhost:3000/api/favorites', data)
       console.log('success');
@@ -25,13 +25,6 @@ function IdentifyResultCard({ plant }) {
     }
 
   }
-
-
-  // function handlePlantDetailbtn() {
-  //   const navigate = useNavigate()
-  //   navigate(`/identify/plants/${plant.gbif.id}`, { state: { plantData: plant } })
-
-  // }
   return (
     <div className="plant-container">
       {/* Passing the plantData object as state, which contains information about the plant. */}

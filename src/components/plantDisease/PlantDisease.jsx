@@ -51,7 +51,7 @@ function PlantDisease() {
     }
     return (
         <div>
-            <h1>Plant Disease List</h1>
+            <h2>Plant Disease List</h2>
 
             {plantDiseaseList.map((disease, index) => (
 

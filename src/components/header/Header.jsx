@@ -9,22 +9,16 @@ import './header.css'
 
 function Header() {
   return (
-    <Navbar expand="lg" className="navbar bg-body-tertiary">
-      <Container className=' narbar-container'>
-        <Navbar.Brand href="/">
-          <img className ='logo' src={logo}></img>
-          </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link className ='navOption' href="/">Home</Nav.Link>
-            <Nav.Link className ='navOption' href="/identify">Identify</Nav.Link>
-            <Nav.Link className ='navOption'href="/favoriteList"> Favorite Plant </Nav.Link>
-            <NavDropdown className ='navOption'title="Explore" >
-              <NavDropdown.Item className ='navOption'href="/plantDisease"> Plant Disease List </NavDropdown.Item>
-            </NavDropdown>
+    <Navbar expand="lg" className="navbar sticky-top">
+      <Container className='narbar-container'>
+        <Navbar.Brand href="/"> <img className='logo' src={logo}></img> </Navbar.Brand>
+        
+          <Nav className="navItems me-auto">
+            <Nav.Link className='navOption' href="/"><h5>Home</h5></Nav.Link>
+            <Nav.Link className='navOption' href="/identify"><h5>Identify</h5></Nav.Link>
+            <Nav.Link className='navOption' href="/favoriteList"> <h5>Favorites List</h5> </Nav.Link>
+            <Nav.Link className='navOption' href="/plantDisease"> <h5>Plant Diseases</h5> </Nav.Link>
           </Nav>
-        </Navbar.Collapse>
       </Container>
     </Navbar>
   )

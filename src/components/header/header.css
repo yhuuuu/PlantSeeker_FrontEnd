@@ -1,3 +1,4 @@
+
 .logo {
   height: 5em;
   /* padding: 0.5em; */
@@ -5,9 +6,17 @@
   /* transition: filter 300ms; */
 }
 .logo:hover {
-    filter: drop-shadow(0 0 0.5em #b4ecaeaa);
+    filter: drop-shadow(0 0 0.5em #4b684d);
   }
 
-.navOption{
+.navOption >h5{
   color: #4b684d;
+}
+
+.navOption >h5:hover{
+  color: #b4bfa4;
+}
+.navbar{
+  background-color: #fffff5;
+ 
 }

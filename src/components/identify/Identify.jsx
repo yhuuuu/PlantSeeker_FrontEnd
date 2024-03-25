@@ -9,12 +9,13 @@ function Identify() {
   const [searchResults, setSearchResults] = useState([])
   const [selectedFile, setSelectedFile] = useState()
   const [uploadSearchResults, setUploadSearchResults] = useState([])
-
+  const [isLoading, setIsLoading] = useState(false)
   const API_KEY = import.meta.env.VITE_API_KEY
 
   // Function to fetch API by image url
   async function handleApiSearchByURL() {
     try {
+      setIsLoading(true)
       console.log('imgUrl in searchByURL:', imgUrl);
       const res = await axios({
         method: 'get',
@@ -31,7 +32,7 @@ function Identify() {
       console.log('Response:', res.data);
       // Update the state with fetch data
       setSearchResults(res.data.results)
-
+      setIsLoading(false); //set loader false
       // Handle response data here
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -41,6 +42,7 @@ function Identify() {
 
   // Function to upload the selected file
   async function handleUpload() {
+    setIsLoading(true)
     if (!selectedFile) {
       console.error('No file selected.');
       return;
@@ -72,6 +74,7 @@ function Identify() {
 
       console.log('data', response.data);
       setUploadSearchResults(response.data.results)// Response data from the API
+      setIsLoading(false); //set loader false
     } catch (error) {
       console.error('error', error);
     }
@@ -117,6 +120,7 @@ function Identify() {
           <input type="file" className="form-control" onChange={handleFileChange} />
           <button onClick={handleUpload} className="input-group-text" > Search Image
           </button>
+          {isLoading ? <p>Loading...</p> : null}
 
         </div>
 
@@ -126,16 +130,15 @@ function Identify() {
             onChange={handleInputImgURLChange}
             placeholder="Upload using image URL" />
           <button className="input-group-text" onClick={handleApiSearchByURL}> Search  URL</button>
-
+          {isLoading ? <p>Loading...</p> : null}
         </div>
       </div>
 
       {/* Conditionally render the SearchResult component if searchResult is not null */}
       <div className="identify-search-result">
-
         {uploadSearchResults && <IdentifyResult results={uploadSearchResults} />}
         {searchResults && <IdentifyResult results={searchResults} />}
-        
+
       </div>
 
     </div>

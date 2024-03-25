@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import PlantDiseaseCard from '../plantDieaseCard/PlantDiseaseCard'
+import './plantDisease.css'
 
 
 function PlantDisease() {
@@ -59,35 +60,37 @@ function PlantDisease() {
             ))}
 
             {/* pagination */}
-
-            {paginationInfo && (
-                <div>
-                    {/* Perviouse Page */}
-                    <button
-                        disabled={paginationInfo.currentPage === 1}
-                        onClick={() => (handlePageChange(paginationInfo.currentPage - 1))}>Pervious Page
-                    </button>
-
-                    {/* Pages */}
-
-                    {Array.from({ length: paginationInfo.lastPage }, (_, i) => i + 1).map((page) => (
-                        <button
-                            key={page}
-                            disabled={paginationInfo.currentPage === page}
-                            onClick={() => handlePageChange(page)}
-                        >
-                            {page}
+            <div className='pagination-container'>
+                {paginationInfo && (
+                    <div>
+                        {/* Perviouse Page */}
+                        <button className='pagination-button'
+                            disabled={paginationInfo.currentPage === 1}
+                            onClick={() => (handlePageChange(paginationInfo.currentPage - 1))}>Pervious Page
                         </button>
-                    ))}
 
-                    {/* Next Page */}
-                    <button
-                        disabled={paginationInfo.currentPage === paginationInfo.lastPage}
-                        onClick={() => (handlePageChange(paginationInfo.currentPage + 1))}
-                    > Next Page
-                    </button>
-                </div>
-            )}
+                        {/* Pages */}
+
+                        {Array.from({ length: paginationInfo.lastPage }, (_, i) => i + 1).map((page) => (
+                            <button className='pagination-button'
+                                key={page}
+                                disabled={paginationInfo.currentPage === page}
+                                onClick={() => handlePageChange(page)}
+                            >
+                                {page}
+                            </button>
+                        ))}
+
+                        {/* Next Page */}
+                        <button className='pagination-button'
+                            disabled={paginationInfo.currentPage === paginationInfo.lastPage}
+                            onClick={() => (handlePageChange(paginationInfo.currentPage + 1))}
+                        > Next Page
+                        </button>
+                    </div>
+                )}
+            </div>
+
         </div>
     )
 }

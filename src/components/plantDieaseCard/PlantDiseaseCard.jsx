@@ -1,4 +1,4 @@
-import React from 'react'
+import './plantDiseaseCard.css'
 
 function PlantDiseaseCard({ disease }) {
     const { common_name, images, description } = disease

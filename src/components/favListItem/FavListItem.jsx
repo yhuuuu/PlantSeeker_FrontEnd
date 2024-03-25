@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import './favListItem.css'
 
 function FavListItem({ favPlant, setFavList }) {
-    const { _id, description } = favPlant
+    const { _id, notes } = favPlant
     const [editing, setEditing] = useState(false)
     //Create state variables to srore the editedd values of plant info
-    const [editedDescription, setEditedDescription] = useState(description);
+    const [editedNotes, setEditedNotes] = useState(notes);
 
+    console.log(favPlant);
     async function handleDelteFavItem() {
         try {
             // Send a DELETE request to the backend API, passing the id in the URL
@@ -33,12 +35,12 @@ function FavListItem({ favPlant, setFavList }) {
     async function handleEditFavItem() {
         try {
             //send PUT request to update the plant information
-            await axios.put(`http://localhost:3000/api/favorites/${_id}`, editedDescription)
+            await axios.put(`http://localhost:3000/api/favorites/${_id}`, editedNotes)
 
             //update the favorite list state after successful update
             setFavList(prevList => prevList.map(plant => {
                 if (plant._id === _id) {
-                    return { ...plant, description: editedDescription };
+                    return { ...plant, notes: editedNotes };
                 }
                 return plant;
             }))
@@ -56,35 +58,50 @@ function FavListItem({ favPlant, setFavList }) {
         <div>
             <div className='favListItem-container'>
                 <h5>{favPlant.plant_scientific_name}</h5>
-                <p>Common Name: {favPlant.plant_common_name}</p>
-                <p>Family: {favPlant.plant_family}</p>
-                <p>Genus: {favPlant.plant_genus}</p>
-                {/* provide input felds for plant description in edit mode */}
+                <div className='favListItem-info'>
+                    <h6>Common Name:</h6>
+                    <p>{favPlant.plant_common_name}</p>
+                </div>
+                <div className='favListItem-info'>
+                    <h6>Family:</h6>
+                    <p> {favPlant.plant_family}</p>
+                </div>
+                <div className='favListItem-info'>
+                    <h6>Genus: </h6>
+                    <p>
+                        {favPlant.plant_genus}
+                    </p>
+
+                </div>
+                {/* provide input felds for plant notes in edit mode */}
                 {editing ? (
                     <input type='text'
-                        value={editedDescription}
-                        onChange={(e) => setEditedDescription(e.target.value)} />
+                        value={editedNotes}
+                        onChange={(e) => setEditedNotes(e.target.value)} />
 
                 ) : (
-                    <p>Description: {favPlant.description}</p>
+                    <div className='favListItem-info'>
+                        <h6>Notes:</h6>
+                        <p>{favPlant.notes}</p>
+                    </div>
                 )}
 
-            </div>
 
+                <div className='btn-container'>
+                    {/* toggle between edit moode and view mode using the 'editing' state variables*/}
 
-
-            <div className='btn-contianer'>
-                {/* toggle between edit moode and view mode using the 'editing' state variables*/}
-
-                {editing ? (
-                    <button onClick={handleEditFavItem}>Save</button>
-                ): (
-                    <button onClick={()=>setEditing(true)}> Edit Description</button>
+                    {editing ? (
+                        <button onClick={handleEditFavItem}>Save</button>
+                    ) : (
+                        <button onClick={() => setEditing(true)}> Edit Notes</button>
                     )}
 
-                <button onClick={handleDelteFavItem}>Delete</button>
+                    <button onClick={handleDelteFavItem}>Delete</button>
+                </div>
             </div>
-            <hr />
+
+
+
         </div>
     )
 }

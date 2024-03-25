@@ -33,7 +33,7 @@ function FavListPage() {
 
   return (
     <div>
-      <h3>Favorites List</h3>
+      <h2>Favorites List</h2>
       {favList.map((favPlant, index) => (
         <FavListItem favPlant={favPlant} key={index} setFavList={setFavList} />
       ))}

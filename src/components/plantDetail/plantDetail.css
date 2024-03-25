@@ -1,6 +1,6 @@
 .plant-detail-container {
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: #b4bfa4bd;
   border: 1px solid #ced4da;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -16,7 +16,9 @@
   width: 50%;
   text-align: left;
   padding: 40px;
-
+  background-color: #ebe2d3;
+  border: 10px dashed white;
+  border-radius: 20px;
 }
 
 .plant-detail-image-container {

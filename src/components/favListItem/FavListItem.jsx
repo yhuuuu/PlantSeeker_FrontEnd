@@ -27,9 +27,6 @@ function FavListItem({ favPlant, setFavList }) {
         }
     }
 
-    // async function handleEditFavItem() {
-    //     setEditing(true)
-    // }
 
     //function for handle sve button
     async function handleEditFavItem() {

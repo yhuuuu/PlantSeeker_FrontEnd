@@ -1,7 +1,7 @@
 .plant-detail-container {
   padding: 20px;
   background-color: #b4bfa483;
-  border: 1px solid #edffc2ad;
+  border: 20px solid #edffc2ad;
   border-radius: 20px;
   margin: 20px 0px;
   display: flex;
@@ -22,7 +22,7 @@
   border: 5px dashed rgba(255, 255, 255, 0.887);
   border-radius: 40px;
   display: flex;
-  max-width: 600px;
+  max-width: 550px;
   max-height: 450px;
   justify-content: center;
   margin-top: 70px;
@@ -55,3 +55,4 @@
 .plant-detail-info-container {
   width: 90%;
 }
+

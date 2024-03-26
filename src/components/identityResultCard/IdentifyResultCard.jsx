@@ -1,15 +1,16 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import './identifyResultCard.css'
-import { useState } from "react";
+import { useNavigate,Link } from "react-router-dom";
+import { useState} from "react";
 import whishlistIcon from "../../images/identifyPage/wishlist.png"
 import detailIcon from "../../images/identifyPage/clipboard.png"
+import './identifyResultCard.css'
 
 function IdentifyResultCard({ plant }) {
 
-  const [isClicked, setIsClicked] = useState(false)
-  const navigate = useNavigate(); // Move useNavigate hook to the top level
+  const [isClicked, setIsClicked] = useState(false);
+  
+  const navigate = useNavigate();
+
 
   async function addToFavorites() {
     try {
@@ -30,7 +31,7 @@ function IdentifyResultCard({ plant }) {
 
   }
 
-  function handleClick(){
+  function handleClick() {
     setIsClicked(true)
     addToFavorites()
   }
@@ -49,9 +50,9 @@ function IdentifyResultCard({ plant }) {
       </Link>
 
       <div className="btn-container ">
-        <button onClick={handleClick}><img src= {whishlistIcon}/>{isClicked?'Added':'Add to Favorites List' }</button>
-       
-        <button onClick={() => navigate(`/identify/plants/${plant.gbif.id}`, { state: { plantData: plant } })}> <img src={detailIcon}/>Check Out Plant Detail</button>
+        <button onClick={handleClick}><img src={whishlistIcon} />{isClicked ? 'Added' : 'Add to Favorites List'}</button>
+
+        <button onClick={() => navigate(`/identify/plants/${plant.gbif.id}`, { state: { plantData: plant } })}> <img src={detailIcon} />Check Out Plant Detail</button>
       </div>
 
     </div>

@@ -1,18 +1,23 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios";
 import IdentifyResult from "../IdentifyResult/IdentifyResult";
 import identify_search from "../../images/identifyPage/question.png"
 import pageLoader from "../../images/identifyPage/watering-can.gif"
 
+
 import './identify.css'
 function Identify() {
+  // search
   const [imgUrl, setImgeUrl] = useState('')
-  const [searchResults, setSearchResults] = useState([])
   const [selectedFile, setSelectedFile] = useState()
+  //result
+  const [searchResults, setSearchResults] = useState([])
   const [uploadSearchResults, setUploadSearchResults] = useState([])
+
   const [isLoading, setIsLoading] = useState(false)
   const [searchMethod, setSearchMethod] = useState(null)
   const API_KEY = import.meta.env.VITE_API_KEY
+
 
   // Function to fetch API by image url
   async function handleApiSearchByURL() {
@@ -35,13 +40,15 @@ function Identify() {
       // Update the state with fetch data
       setSearchResults(res.data.results)
       setIsLoading(false); //set loader false
+      // Store search results in session storage
+      sessionStorage.setItem('searchResults', JSON.stringify(res.data.results));
+
       // Handle response data here
     } catch (error) {
       console.error('Error fetching data:', error);
       // Handle error
     }
   }
-
   // Function to upload the selected file
   async function handleUpload() {
     setIsLoading(true)
@@ -77,27 +84,38 @@ function Identify() {
       console.log('data', response.data);
       setUploadSearchResults(response.data.results)// Response data from the API
       setIsLoading(false); //set loader false
+
+      sessionStorage.setItem('searchResults', JSON.stringify(response.data.results));
     } catch (error) {
       console.error('error', error);
     }
   }
-
   // Function to handle file selection
   function handleFileChange(e) {
     setSelectedFile(e.target.files[0]);
   }
-
   // Function for handle image URL input change
   const handleInputImgURLChange = (e) => {
     setImgeUrl(e.target.value)
   }
-
   // Function to set search method and excute the corresponding search
   const handleSearch = (method) => {
     setSearchMethod(method)
     setIsLoading(true)
     method === "URL" ? handleApiSearchByURL() : handleUpload()
   }
+
+  useEffect(() => {
+    // Retrieve previous search results from session storage when component mounts
+    const storedResults = sessionStorage.getItem('searchResults');
+    if (storedResults) {
+      setSearchResults(JSON.parse(storedResults));
+      setSearchMethod('URL')
+      setUploadSearchResults([]);
+    }
+  }, []);
+
+
 
   return (
     <div className="identify-container" >

@@ -4,20 +4,25 @@ function Home() {
   return (
 
     <div className="jumbotron">
-
       <div className="home-box-1">
+
+        {/* Home Box1 LEFT */}
         <div className="home-box-1-left">
-          <img src={home_Planter} alt="" />
+          <img src={home_Planter} alt="HomePage_img" />
         </div>
 
+        {/* Home Box1 RIGHT */}
         <div div className="home-box-1-right">
+
           <h2>Welcome to PlantSeeker!</h2>
+
+          {/* Right section Top textbox */}
           <p className="home-box-1-right-text-1 text-start">
             Explore nature's beauty with our advanced plant identification tool. Whether you're a seasoned botanist or new to plant exploration, our app makes it easy to identify and learn about the flora around you.
           </p>
-
-
-          <div className="home-box-1-right-text-2">
+          
+          {/* Right section Bottom textbox */}
+          <div className="home-box-1-right-text-2.1">
             <h5>Features</h5>
             <ul className="text-start">
               <li>Instant Identification: Our powerful AI analyzes images and provides accurate results within seconds.
@@ -28,48 +33,17 @@ function Home() {
               </li>
             </ul>
 
-            <p className="text-start">
-            Start your plant identification journey today! Upload your first image and dive into a fascinating botanical adventure.
+            <p className="home-box-1-right-text-2.2 text-start">
+              Start your plant identification journey today! Upload your first image and dive into a fascinating botanical adventure.
             </p>
-            <div className="home-btn">
+
+            <div className="homePage-btn">
               <a className="btn" href="/identify" role="button">Start Exploring Now</a>
             </div>
 
           </div>
         </div>
       </div>
-
-      {/* <hr /> */}
-      {/* 
-      <div className="home-box-2">
-        <div className="home-box-2-left">
-          <h5>How It Works</h5>
-          <ul className="text-start">
-            <li>Upload Your Picture: Take a clear picture of the plant you want to identify or upload an image from your device</li>
-            <li>Instant Identification:Our powerful AI technology analyzes the image and provides accurate identification results within seconds.</li>
-            <li>Explore Plant Details:  Dive deeper into the world of plants with comprehensive information including species, common names, habitats, and more.</li>
-          </ul>
-        </div>
-
-        <div className="home-box-2-right">
-          <img src={home_searching} alt="" />
-        </div>
-      </div> */}
-      {/* 
-      <div className="home-box-2">
-        <div className="home-box-2-left">
-          <h5>Features</h5>
-          <ul className="text-start">
-            <li>Save Favorites: Keep track of your favorite plants by saving them to your personalized list</li>
-            <li>Educational Resources: Learn about plant diseases, gardening tips, and interesting facts to nurture your green thumb.</li>
-            <li>Community Interaction: Join a vibrant community of plant enthusiasts to share knowledge, experiences, and beautiful plant photos.</li>
-          </ul>
-        </div>
-        <div className="home-box-2-right">
-          <img src={home_more_plant} alt="" />
-        </div>
-        <hr /> */}
-      {/* </div> */}
     </div>
 
   )

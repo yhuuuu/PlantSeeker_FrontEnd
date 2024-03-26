@@ -37,10 +37,6 @@
     align-items: center;
 }
 
-.input-group input[type="file"],
-.input-group input[type="text"] {
-    flex: 1;
-}
 
 .input-group-text {
     cursor: pointer;

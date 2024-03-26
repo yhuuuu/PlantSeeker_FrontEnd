@@ -74,9 +74,6 @@ This project utilizes two third-party APIs to enhance its functionality.
 - **Moongoose**: JavaScript object-oriented programming library that creates a connection between MongoDB and the Node.js
 - **Session Storage**: Used for storing previous search results to maintain state across page refreshes.
 - **CSS**: Styling the user interface.
-- **CORS**:
-- **FormData**:
-- **Pass object as a state and use UseLocation to access the new Path route**:
 
 
 ## Installation
@@ -117,3 +114,21 @@ https://my.plantnet.org/doc
 
 resource
 https://www.flaticon.com/free-icon/wishlist_12759936?term=add+to+list&page=2&position=49&origin=search&related_id=12759936
+
+- **CORS**:
+- **FormData**:
+- **Pass object as a state and use UseLocation to access the new Path route**:
+- useLocation(plantdetail page)
+-- Session Storage
+
+-Formdata ofr uploading picture 
+const formData = new FormData();
+      formData.append('images', selectedFile);
+
+
+{/* Passing the plantData object as state, which contains information about the plant. */}
+      <Link
+        to={`/identify/plants/${plant.gbif.id}`} 
+        state={{ plantData: plant }}
+      >
+  useNavigate

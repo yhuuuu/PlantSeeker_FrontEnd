@@ -2,6 +2,7 @@ import './plantDiseaseCard.css'
 
 function PlantDiseaseCard({ disease }) {
     const { common_name, images, description } = disease
+    
     // Check if images array exists and has at least one element
     const imageUrl = images && images.length > 0 ? images[0].thumbnail : null;
     return (

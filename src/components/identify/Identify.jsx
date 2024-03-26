@@ -10,94 +10,109 @@ function Identify() {
   // search
   const [imgUrl, setImgeUrl] = useState('')
   const [selectedFile, setSelectedFile] = useState()
-  //result
+
+  // result
   const [searchResults, setSearchResults] = useState([])
   const [uploadSearchResults, setUploadSearchResults] = useState([])
 
-  const [isLoading, setIsLoading] = useState(false)
+  // excute the corresponding search by search method ("URL"or "Upload")
   const [searchMethod, setSearchMethod] = useState(null)
+
+  const [isLoading, setIsLoading] = useState(false)
   const API_KEY = import.meta.env.VITE_API_KEY
 
+  //----Fetching-----
 
   // Function to fetch API by image url
   async function handleApiSearchByURL() {
-    try {
+    
+    if (!imgUrl) {
+      setIsLoading(false)
+      alert('Please enter a image URL.')
+    } else {
       setIsLoading(true)
-      console.log('imgUrl in searchByURL:', imgUrl);
-      const res = await axios({
-        method: 'get',
-        url: `https://my-api.plantnet.org/v2/identify/all`,
-        params: {
-          images: imgUrl,
-          'include-related-images': true,
-          'no-reject': false,
-          'lang': 'en',
-          'api-key': API_KEY,
-        }
-      })
+      try {
+        //console.log('imgUrl in searchByURL:', imgUrl);
+        const res = await axios({
+          method: 'get',
+          url: `https://my-api.plantnet.org/v2/identify/all`,
+          params: {
+            images: imgUrl,
+            'include-related-images': true,
+            'no-reject': false,
+            'lang': 'en',
+            'api-key': API_KEY,
+          }
+        })
+        //console.log('Response:', res.data);
 
-      console.log('Response:', res.data);
-      // Update the state with fetch data
-      setSearchResults(res.data.results)
-      setIsLoading(false); //set loader false
-      // Store search results in session storage
-      sessionStorage.setItem('searchResults', JSON.stringify(res.data.results));
+        // Update the state with fetch data
+        setSearchResults(res.data.results)
+        // Set loader false
+        setIsLoading(false);
+        // Store search results in session storage
+        sessionStorage.setItem('searchResults', JSON.stringify(res.data.results));
 
-      // Handle response data here
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      // Handle error
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     }
   }
-  // Function to upload the selected file
+
+  // Function to fetch API by upload the selected file
   async function handleUpload() {
-    setIsLoading(true)
+
     if (!selectedFile) {
-      console.error('No file selected.');
-      return;
-    }
+      alert('No file selected.')
+      setIsLoading(false)
 
-    const formData = new FormData();
-    formData.append('images', selectedFile);
+    } else {
+      setIsLoading(true)
+      const formData = new FormData();
+      formData.append('images', selectedFile);
 
-    try {
-      const response = await axios({
-        method: 'post',
-        url: `https://my-api.plantnet.org/v2/identify/all`,
+      try {
+        const response = await axios({
+          method: 'post',
+          url: `https://my-api.plantnet.org/v2/identify/all`,
+          params: {
+            'include-related-images': true,
+            'no-reject': false,
+            'lang': 'en',
+            'api-key': API_KEY,
 
+          },
+          data: formData,
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
 
-        params: {
-          'include-related-images': true,
-          'no-reject': false,
-          'lang': 'en',
-          'api-key': API_KEY,
+        //console.log('data', response.data);
 
-        },
-        data: formData,
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-
-
-      })
-
-      console.log('data', response.data);
-      setUploadSearchResults(response.data.results)// Response data from the API
-      setIsLoading(false); //set loader false
-
-      sessionStorage.setItem('searchResults', JSON.stringify(response.data.results));
-    } catch (error) {
-      console.error('error', error);
+        // set response data from the API
+        setUploadSearchResults(response.data.results)
+        //set loader false
+        setIsLoading(false);
+        // Store search results in session storage
+        sessionStorage.setItem('searchResults', JSON.stringify(response.data.results));
+      } catch (error) {
+        console.error('error', error);
+      }
     }
   }
-  // Function to handle file selection
-  function handleFileChange(e) {
+
+  //---Handleing-----
+  // Function to handle file selection  currently only accept 1 picture
+  const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   }
+
   // Function for handle image URL input change
   const handleInputImgURLChange = (e) => {
     setImgeUrl(e.target.value)
   }
+  
   // Function to set search method and excute the corresponding search
   const handleSearch = (method) => {
     setSearchMethod(method)
@@ -120,53 +135,72 @@ function Identify() {
   return (
     <div className="identify-container" >
 
+      {/* How to use */}
       <div className="identify-description">
         <h2>How It Works</h2>
+
         <ul className="text-start">
           <li>
             <strong>Upload Your Picture: </strong>
-            Upload an image from your deskstop or image url. (* image must be .jpeg or .png format) </li>
+            Upload an image from your deskstop or image url. (* image must be .jpeg or .png format)
+          </li>
+
           <li>
             <strong>Instant Identification: </strong>
-            Our powerful AI technology analyzes the image and provides accurate identification results within seconds.</li>
+            Our powerful AI technology analyzes the image and provides accurate identification results within seconds.
+          </li>
+
           <li>
             <strong>Explore Plant Details: </strong>
-            Dive deeper into the world of plants with comprehensive information including species, common names, scientify name, and more.</li>
+            Dive deeper into the world of plants with comprehensive information including species, common names, scientify name, and more.
+          </li>
         </ul>
 
-        <div >
-          <img src={identify_search} alt="" />
+        {/* Image */}
+        <div className="identify-image">
+          <img src={identify_search} alt="searching" />
         </div>
-
       </div>
 
+      {/* Search Options */}
       <div className="identify-search">
+
+        {/* Search by uploading */}
         <div className="input-group mb-3">
           <input type="file" className="form-control" onChange={handleFileChange} />
           <button onClick={() => handleSearch("Upload")} className="input-group-text" > Search Image
           </button>
-
         </div>
 
+        {/* Search by URL */}
         <div className="input-group mb-3">
           <input class="form-control" type="text"
             value={imgUrl}
             onChange={handleInputImgURLChange}
             placeholder="Upload using image URL" />
           <button className="input-group-text" onClick={() => handleSearch("URL")}> Search  URL</button>
-
         </div>
-        {isLoading ? <h6 className="loaderText">Loading... <img className="pageLoader" src={pageLoader} alt="" /></h6> : null}
+
+        {/* Loader */}
+        {/* Display loader when page is loading */}
+        {isLoading ?
+          <h6 className="loaderText">Loading...
+            <img className="pageLoader" src={pageLoader} alt="loader" />
+          </h6> : null
+        }
       </div>
 
 
       <div className="identify-search-result">
 
-        {/* Display search results */}
+        {/* Display search results depent of the search method*/}
         {searchMethod === "Upload" && (
           uploadSearchResults && <IdentifyResult results={uploadSearchResults} />)
         }
-        {searchMethod === "URL" && <IdentifyResult results={searchResults} />}
+
+        {searchMethod === "URL" && (
+          searchResults && <IdentifyResult results={searchResults} />)
+        }
 
       </div>
 

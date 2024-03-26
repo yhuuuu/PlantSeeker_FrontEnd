@@ -9,8 +9,8 @@ import { useState } from "react";
 function PlantDetail({ plantData }) {
   const { images, species, gbif } = plantData
   const [isClicked, setIsClicked] = useState(false)
+
   async function addToFavorites() {
-    // console.log(plantData);
     try {
       const data = {
         plant_scientific_name: `${plantData.species.scientificName}`,

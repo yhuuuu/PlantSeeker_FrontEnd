@@ -47,7 +47,8 @@ function PlantDisease() {
     // Function handle page change
     function handlePageChange(pageNumber) {
         console.log('Page changed to:', pageNumber);
-        getPlantDisease(pageNumber)
+        getPlantDisease(pageNumber);
+        window.scrollTo(0, 0)
     }
     return (
         <div>

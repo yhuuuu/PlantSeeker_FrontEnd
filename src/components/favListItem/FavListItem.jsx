@@ -8,8 +8,8 @@ function FavListItem({ favPlant, setFavList }) {
     //Create state variables to srore the editedd values of plant info
     const [editedNotes, setEditedNotes] = useState(notes);
 
-    console.log(favPlant);
-    async function handleDelteFavItem() {
+    console.log('favPlant',favPlant);
+    async function handleDeleteFavItem() {
         try {
             // Send a DELETE request to the backend API, passing the id in the URL
             await axios.delete(`http://localhost:3000/api/favorites/${_id}`)
@@ -28,28 +28,36 @@ function FavListItem({ favPlant, setFavList }) {
     }
 
 
-    //function for handle sve button
+    //function for handle save button
+    // async function handleEditFavItem() {
+    //     try {
+    //         //send PUT request to update the plant information
+    //         await axios.put(`http://localhost:3000/api/favorites/${_id}`, { notes: editedNotes })
+
+    //         //update the favorite list state after successful update
+    //         setFavList(prevList => prevList.map(plant => {
+    //             if (plant._id === _id) {
+    //                 return { ...plant, notes: editedNotes };
+    //             }
+    //             return plant;
+    //         }))
+    //         //disable editing mode after updating
+    //         setEditing(false)
+    //         console.log('Plant updated');
+    //     } catch (error) {
+    //         console.error('Error updating plant:', error);
+    //     }
+    // }
     async function handleEditFavItem() {
         try {
-            //send PUT request to update the plant information
-            await axios.put(`http://localhost:3000/api/favorites/${_id}`, editedNotes)
-
-            //update the favorite list state after successful update
-            setFavList(prevList => prevList.map(plant => {
-                if (plant._id === _id) {
-                    return { ...plant, notes: editedNotes };
-                }
-                return plant;
-            }))
-            //disable editing mode after updating
-            setEditing(false)
+            await axios.put(`http://localhost:3000/api/favorites/${_id}`, { notes: editedNotes });
+            setFavList(prevList => prevList.map(plant => (plant._id === _id ? { ...plant, notes: editedNotes } : plant)));
+            setEditing(false);
             console.log('Plant updated');
-
         } catch (error) {
             console.error('Error updating plant:', error);
         }
     }
-
 
     return (
         <div>
@@ -93,7 +101,7 @@ function FavListItem({ favPlant, setFavList }) {
                         <button onClick={() => setEditing(true)}> Edit Notes</button>
                     )}
 
-                    <button onClick={handleDelteFavItem}>Delete</button>
+                    <button onClick={handleDeleteFavItem}>Delete</button>
                 </div>
             </div>
 

@@ -103,32 +103,35 @@ BackEnd - npm start
 
 ## Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
-Save the previous search when I go back with the page React
-https://stackoverflow.com/questions/68016276/save-the-previous-search-when-i-go-back-with-the-page-react
-
-Expose API key
-
-https://my.plantnet.org/doc
+#### 1. Integration of Third-Party APIs:
+Integrating third-party APIs like Pl@ntNet and Perenual required understanding their documentation, handling authentication, CORS errors and processing API responses effectively. I overcame this challenge by carefully reading the API documentation, testing API requests using tools like Postman and Thunder Client, and implementing the API calls in my project.
 
 
-resource
-https://www.flaticon.com/free-icon/wishlist_12759936?term=add+to+list&page=2&position=49&origin=search&related_id=12759936
+#### 2. State Management in React:
+ Managing state effectively in a React application, especially handling asynchronous operations like API requests and loading states, was a challenge. I used React hooks like useState and useEffect to manage component state and lifecycle effectively. Additionally, I used conditional rendering to display loading spinners or fetched data based on the application state.
 
-- **CORS**:
-- **FormData**:
-- **Pass object as a state and use UseLocation to access the new Path route**:
-- useLocation(plantdetail page)
--- Session Storage
+#### 3. Handling Page Navigation and State Preservation: 
+Preserving previous search results when navigating back to the search page posed a challenge. I addressed this challenge by storing the search results in session storage when they were fetched and retrieving them when the search page was revisited. By using session storage, I ensured that the previous search results were available even after navigating away from the page.
 
--Formdata ofr uploading picture 
-const formData = new FormData();
-      formData.append('images', selectedFile);
+#### 4. Handling FormData for Image Uploads and
+Incorporating FormData to handle image uploads presented its own set of challenges. Understanding how to create and manipulate FormData objects and append files to them was essential for properly sending image data to the server.
+
+#### 5. Combining Object State and FormData:
+Combining the use of object state for passing data between routes and FormData for handling image uploads required careful management. Ensuring that the data was correctly formatted and transmitted to the server while maintaining accessibility across components was crucial for a smooth user experience.
+
+#### 5. Error Handling: 
+Implementing robust error handling mechanisms for API requests and other asynchronous operations was crucial to provide a smooth user experience. I handled errors by using try-catch blocks and sending appropriate error responses to the client. Additionally, I implemented error logging to track and debug issues effectively.
+
+#### 5.UI/UX Design: 
+Designing a user-friendly interface and ensuring a seamless user experience was essential. I focused on creating intuitive user interfaces, providing clear feedback for user actions, and optimizing the application's performance. I used CSS frameworks like Bootstrap and custom styling to enhance the visual appeal of the application.
 
 
-{/* Passing the plantData object as state, which contains information about the plant. */}
-      <Link
-        to={`/identify/plants/${plant.gbif.id}`} 
-        state={{ plantData: plant }}
-      >
-  useNavigate
+
+
+## Appendix
+
+- **Icon**: https://www.flaticon.com/free-icon/
+- **PlantNetAPI**: https://my.plantnet.org/ 
+- **Perenual**: https://perenual.com/
+- **Huemint**: https://huemint.com/website-2/
+- **Save State to LocalStorage & Persist on Refresh with React.js**: https://www.youtube.com/watch?v=rWfhwW9forg&t=2

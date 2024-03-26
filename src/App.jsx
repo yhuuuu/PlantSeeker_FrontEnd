@@ -9,16 +9,14 @@ import IdentifyPage from './pages/IdentifyPage';
 import PlantDetailPage from './pages/PlantDetailPage';
 import FavListPage from './pages/FavListPage';
 import PlantDiseasePage from './pages/PlantDiseasePage';
-import Footer from './components/footer/Footer';
+
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <Header/>  
+      <Header />
       <Routes>
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<HomePage />} />
@@ -27,7 +25,7 @@ function App() {
         <Route path='/favoriteList' element={<FavListPage />} />
         <Route path='/plantDisease' element={<PlantDiseasePage />} />
       </Routes>
-     
+
     </>
   )
 }

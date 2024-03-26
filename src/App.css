@@ -7,19 +7,22 @@
 }
 
 
-body{
+body {
   background-color: #fffff5;
 }
 
-h1{
-    margin: 40px 20px;
+h1 {
+  margin: 40px 20px;
 }
 
-h5,h6,h4 {
+h5,
+h6,
+h4 {
   margin: 5px;
   color: #4b684d;
 }
-h2{
+
+h2 {
   color: #4b684d;
 }
 

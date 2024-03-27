@@ -126,8 +126,9 @@ function Identify() {
     // Retrieve previous search results from session storage when component mounts
     const storedResults = sessionStorage.getItem('searchResults');
     if (storedResults) {
-      setSearchResults(JSON.parse(storedResults));
+      setSearchResults(JSON.parse(storedResults));//parses the JSON string retrieved from session storage into a JavaScript object using JSON.parse(storedResults)
       setSearchMethod('URL')
+      //clears 'uploadSearchResults' the state variable bt setting it to an empty array. Ensures that if there were any previous search results from image uploads, they are cleared when new results from URL searches are loaded.
       setUploadSearchResults([]);
     }
   }, []);

@@ -68,6 +68,8 @@ function Identify() {
 
     } else {
       setIsLoading(true)
+      
+      //used to add the selected image file to the FormData object with the key 'images'. Iimage data is prepared to be sent as part of the POST request to the API endpoint.
       const formData = new FormData();
       formData.append('images', selectedFile);
 

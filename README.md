@@ -1,7 +1,7 @@
 
 # PlantSeeker
 
-Welcome to the PlantSeeker App! This application allows users to identify plants by uploading images or providing image URLs. It leverages powerful AI technology to analyze images and provide accurate identification results. Whether the user is a seasoned botanist or just starting the journey into the world of plants, this app makes it easy to identify and learn about the flora around them.
+Welcome to the PlantSeeker App! This application allows users to identify plants by uploading image or providing image URs. It leverages powerful AI technology to analyze image and provide accurate identification results. Whether the user is a seasoned botanist or just starting the journey into the world of plants, this app makes it easy to identify and learn about the flora around them.
 
 ## Features
 
@@ -18,6 +18,7 @@ Welcome to the PlantSeeker App! This application allows users to identify plants
 - To identify a plant, upload an image or provide an image URL.
 - Explore detailed information about identified plants.
 - Save favorite plants to your personalized list.
+
 ## Third-Party API
 
 This project utilizes two third-party APIs to enhance its functionality.
@@ -113,7 +114,7 @@ Integrating third-party APIs like Pl@ntNet and Perenual required understanding t
 #### 3. Handling Page Navigation and State Preservation: 
 Preserving previous search results when navigating back to the search page posed a challenge. I addressed this challenge by storing the search results in session storage when they were fetched and retrieving them when the search page was revisited. By using session storage, I ensured that the previous search results were available even after navigating away from the page.
 
-#### 4. Handling FormData for Image Uploads and
+#### 4. Handling FormData for Image Uploads:
 Incorporating FormData to handle image uploads presented its own set of challenges. Understanding how to create and manipulate FormData objects and append files to them was essential for properly sending image data to the server.
 
 #### 5. Combining Object State and FormData:

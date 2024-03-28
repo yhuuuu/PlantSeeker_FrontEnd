@@ -60,3 +60,7 @@
     padding: 10px;
     font-size: 29px
 }
+
+.home-box-img-div{
+    display: flex;
+}

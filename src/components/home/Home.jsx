@@ -8,8 +8,11 @@ function Home() {
 
         {/* Home Box1 LEFT */}
         <div className="home-box-1-left">
-          <img src={home_Planter} alt="HomePage_img" />
-          <a href="https://www.flaticon.com/free-stickers/plant" title="plant stickers">Plant stickers created by Stickers - Flaticon..</a>
+          <div className="home-box-img-div">
+            <img src={home_Planter} alt="HomePage_img" />
+            <a href="https://www.flaticon.com/free-stickers/plant" title="plant stickers">Plant stickers created by Stickers - Flaticon..</a>
+          </div>
+
         </div>
 
         {/* Home Box1 RIGHT */}
@@ -21,7 +24,7 @@ function Home() {
           <p className="home-box-1-right-text-1 text-start">
             Explore nature's beauty with our advanced plant identification tool. Whether you're a seasoned botanist or new to plant exploration, our app makes it easy to identify and learn about the flora around you.
           </p>
-          
+
           {/* Right section Bottom textbox */}
           <div className="home-box-1-right-text-2.1">
             <h5>Features</h5>

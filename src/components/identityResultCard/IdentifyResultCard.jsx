@@ -21,7 +21,7 @@ function IdentifyResultCard({ plant }) {
         plant_genus: `${plant.species.genus.scientificName}`,
         notes: ''
       }
-      const res = await axios.post('http://localhost:3000/api/favorites', data)
+      const res = await axios.post('https://plantseeker-backend-1.onrender.com/api/favorites', data)
       console.log('add to fav success');
       //console.log("resdata", res)
 

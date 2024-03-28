@@ -12,7 +12,7 @@ function FavListItem({ favPlant, setFavList }) {
     async function handleDeleteFavItem() {
         try {
             // Send a DELETE request to the backend API, passing the id in the URL
-            await axios.delete(`http://localhost:3000/api/favorites/${_id}`)
+            await axios.delete(`https://plantseeker-backend-1.onrender.com/api/favorites/${_id}`)
 
             // Update the favorite list state after successful deletion
             setFavList(prevList => {
@@ -32,7 +32,7 @@ function FavListItem({ favPlant, setFavList }) {
     // async function handleEditFavItem() {
     //     try {
     //         //send PUT request to update the plant information
-    //         await axios.put(`http://localhost:3000/api/favorites/${_id}`, { notes: editedNotes })
+    //         await axios.put(`https://plantseeker-backend-1.onrender.com/api/favorites/${_id}`, { notes: editedNotes })
 
     //         //update the favorite list state after successful update
     //         setFavList(prevList => prevList.map(plant => {
@@ -50,7 +50,7 @@ function FavListItem({ favPlant, setFavList }) {
     // }
     async function handleEditFavItem() {
         try {
-            await axios.put(`http://localhost:3000/api/favorites/${_id}`, { notes: editedNotes });
+            await axios.put(`https://plantseeker-backend-1.onrender.com/api/favorites/${_id}`, { notes: editedNotes });
             setFavList(prevList => prevList.map(plant => (plant._id === _id ? { ...plant, notes: editedNotes } : plant)));
             setEditing(false);
             console.log('Plant updated');

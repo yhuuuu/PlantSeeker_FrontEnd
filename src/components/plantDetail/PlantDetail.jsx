@@ -19,7 +19,7 @@ function PlantDetail({ plantData }) {
         plant_genus: `${plantData.species.genus.scientificName}`,
         notes: ''
       }
-      const res = await axios.post('http://localhost:3000/api/favorites', data)
+      const res = await axios.post('https://plantseeker-backend-1.onrender.com/api/favorites', data)
       console.log('success');
       console.log("resdata", res)
 

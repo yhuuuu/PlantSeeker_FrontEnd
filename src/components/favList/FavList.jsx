@@ -12,7 +12,7 @@ function FavList() {
         try {
           const res = await axios({
             method: 'get',
-            url: `http://localhost:3000/api/favorites`,
+            url: `https://plantseeker-backend-1.onrender.com/api/favorites`,
     
           })
     

@@ -19,17 +19,12 @@ Welcome to the PlantSeeker App! This application allows users to identify plants
 - Explore detailed information about identified plants.
 - Save favorite plants to your personalized list.
 
-## Third-Party API
-
-This project utilizes two third-party APIs to enhance its functionality.
-
-### Pl@ntNet API
-
-- **Description**: Pl@ntNet API is a powerful plant identification tool that leverages advanced AI technology to analyze images of plants and provide accurate identification results.
-- **API Key**: To access the Pl@ntNet API, you need to sign up for an account on the [Pl@ntNet website](https://my.plantnet.org/doc) and generate your private API key from the Settings page.
-- **Documentation**: Detailed documentation for the Pl@ntNet API can be found [here](https://my.plantnet.org/doc/openapi).
-
-### Perenual API
+- **Image Upload**: Users can upload images of plants from their desktop.
+- **Image URL Search**: Users can search for plant images using URLs.
+- **Instant Identification**: The app uses advanced AI technology to analyze images and provide instant identification results.
+- **Plant Details**: Users can explore detailed information about identified plants, including species, common names, scientific names, and more.
+- **Favorites List**: Users can save their favorite plants to a personalized list for future reference.
+- **Educational Resources**: The app provides resources for learning about plant diseases(current feature), gardening tips, and interesting plant facts(later features)
 
 - **Description**: Perenual API provides a comprehensive list of plant diseases along with detailed information about each disease, including images, explanations, and causes.
 - **API Key**: To use the Perenual API, you must sign up for an account on the [Perenual website](https://perenual.com/docs/api) and generate your private API key from the developer page.

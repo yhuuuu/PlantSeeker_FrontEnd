@@ -9,7 +9,7 @@ function Home() {
         {/* Home Box1 LEFT */}
         <div className="home-box-1-left">
           <img src={home_Planter} alt="HomePage_img" />
-          <a href="https://www.flaticon.com/free-stickers/plant" title="plant stickers">Plant stickers created by Stickers - Flaticon</a>
+          <a href="https://www.flaticon.com/free-stickers/plant" title="plant stickers">Plant stickers created by Stickers - Flaticon..</a>
         </div>
 
         {/* Home Box1 RIGHT */}

@@ -1,0 +1,14 @@
+.contactFrom-container {
+    margin: 20px;
+   
+}
+
+.contactFrom-container input,
+.contactFrom-container textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contactFrom-container label{
+   display: flex;
+}

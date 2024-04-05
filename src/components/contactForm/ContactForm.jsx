@@ -4,8 +4,8 @@ import "./contactForm.css"
 
 function ContactForm() {
     const [details, setDetails] = useState({
-        name:"",
-        email:"",
+        name: "",
+        email: "",
         message: "",
 
     })
@@ -46,49 +46,74 @@ function ContactForm() {
 
     const handleSendEmail = () => {
         sendCustomEmail(details)
+        alert("Message sent successfully!")
     }
 
 
-
-
     return (
-        <div className="main">
-            <div>
-                <span>Name:</span>
-                <input
-                    name="from_name"
-                    value={details.from_name}
-                    onChange={handleDetailChange}
-                    type="text"
-                    placeholder="Required.." />
+        <div class="contactFrom-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="from_name" className="form-label">Name:</label>
+                        <input
+                            class="form-control"
+                            name="from_name"
+                            value={details.from_name}
+                            onChange={handleDetailChange}
+                            type="text"
+                            placeholder="Required" />
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <span>Email:</span>
-                <textarea
-                    name="email"
-                    value={details.email}
-                    onChange={handleDetailChange}
-                    type="email"
-                    placeholder="Required" />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input
+                            class="form-control"
+                            name="email"
+                            value={details.email}
+                            onChange={handleDetailChange}
+                            type="email"
+                            placeholder="name@example.com" />
+                    </div>
+                </div>
             </div>
-            <div>
-                <span>Message</span>
-                <textarea
-                    name="message"
-                    value={details.message}
-                    onChange={handleDetailChange}
-                    type="text"
-                    placeholder="Required.." />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea
+                            class="form-control"
+                            name="message"
+                            value={details.message}
+                            onChange={handleDetailChange}
+                            type="text"
+                            placeholder="" />
+                    </div>
+                </div>
             </div>
-            <button
-                disable={!details.from_name || !details.email || !details.message}
-                onClick={handleSendEmail}
-            >
-                <span>Send Email</span>
-            </button>
+
+            <div class="row">
+                <div class="col-md-12 mt-3">
+                    <button
+                        class="btn btn-primary"
+                        disabled={!details.from_name || !details.email || !details.message}
+                        onClick={handleSendEmail}
+                    >
+                        Send Email
+                    </button>
+                </div>
+            </div>
+
 
         </div>
+
+
+
     )
 }
 

@@ -6,12 +6,12 @@
     display: flex;
 }
 
-.home-box-1-left {
+/* .home-box-1-left {
     width: 40%;
     margin: 40px;
     display: flex;
     align-items: center;
-}
+} */
 
 .home-box-1-right {
     background-color: #ebe2d34e;
@@ -59,8 +59,4 @@
     justify-content: center;
     padding: 10px;
     font-size: 29px
-}
-
-.home-box-img-div{
-    display: flex;
 }

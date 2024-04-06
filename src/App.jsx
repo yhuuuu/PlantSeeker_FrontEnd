@@ -10,6 +10,7 @@ import PlantDetailPage from './pages/PlantDetailPage';
 import FavListPage from './pages/FavListPage';
 import PlantDiseasePage from './pages/PlantDiseasePage';
 import ContactPage from './pages/ContactPage';
+import CreditsPage from './pages/CreditsPage';
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path='/favoriteList' element={<FavListPage />} />
         <Route path='/plantDisease' element={<PlantDiseasePage />} />
         <Route path='/contact' element={<ContactPage />} />
+        <Route path='/credits' element={<CreditsPage />} />
       </Routes>
 
     </>

@@ -1,0 +1,7 @@
+.creditList-container  .col-md-12{
+    background-color: rgba(255, 200, 0, 0.225);
+    padding: 20px 30px;
+    border: 10px solid rgba(95, 160, 118, 0.525);
+    margin: 20px;
+    border-radius: 10px;   
+}

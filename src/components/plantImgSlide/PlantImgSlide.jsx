@@ -32,26 +32,26 @@ function PlantImgSlide({ images }) {
 
     return (
         <>
-            <div className="carousel-container">
+        <div className="carousel-container">
 
-                <button onClick={handlePrevious} className="carousel-button">
-                    <img src={arrowBtn} alt="" style={{ width: '30px', height: '30px', transform: 'scaleX(-1)' }} />
-                </button>
+            <button onClick={handlePrevious} className="carousel-button">
+                <img src={arrowBtn} alt="" style={{ width: '30px', height: '30px', transform: 'scaleX(-1)' }} />
+            </button>
 
-                <div className="image-slide">
-                    {images && images.length > 0 && (
-                        <div>
-                            <img src={`${images[index].url.m}`} alt="" />
-                        </div>
-                    )}
-                </div>
-
-                <button onClick={handleNext} className="carousel-button">
-                    <img src={arrowBtn} alt="" style={{ width: '30px', height: '30px' }} />
-                </button>
-
+            <div className="image-slide">
+                {images && images.length > 0 && (
+                    <div>
+                        <img src={`${images[index].url.m}`} alt="" />
+                    </div>
+                )}
             </div>
-        </>
+
+            <button onClick={handleNext} className="carousel-button">
+                <img src={arrowBtn} alt="" style={{ width: '30px', height: '30px' }} />
+            </button>
+
+        </div>
+    </>
 
 
     )

@@ -51,13 +51,13 @@ function ContactForm() {
 
 
     return (
-        <div class="contactFrom-container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
+        <div className="contactFrom-container">
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="form-group">
                         <label for="from_name" className="form-label">Name:</label>
                         <input
-                            class="form-control"
+                            className="form-control"
                             name="from_name"
                             value={details.from_name}
                             onChange={handleDetailChange}
@@ -67,12 +67,12 @@ function ContactForm() {
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="form-group">
                         <label for="email">Email:</label>
                         <input
-                            class="form-control"
+                            className="form-control"
                             name="email"
                             value={details.email}
                             onChange={handleDetailChange}
@@ -82,12 +82,12 @@ function ContactForm() {
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="form-group">
                         <label for="message">Message:</label>
                         <textarea
-                            class="form-control"
+                            className="form-control"
                             name="message"
                             value={details.message}
                             onChange={handleDetailChange}
@@ -97,10 +97,10 @@ function ContactForm() {
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12 mt-3">
+            <div className="row">
+                <div className="col-md-12 mt-3">
                     <button
-                        class="btn btn-primary"
+                        className="btn btn-primary"
                         disabled={!details.from_name || !details.email || !details.message}
                         onClick={handleSendEmail}
                     >

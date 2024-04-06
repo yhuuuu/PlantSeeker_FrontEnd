@@ -177,7 +177,7 @@ function Identify() {
 
         {/* Search by URL */}
         <div className="input-group mb-3">
-          <input class="form-control" type="text"
+          <input className="form-control" type="text"
             value={imgUrl}
             onChange={handleInputImgURLChange}
             placeholder="Upload using image URL" />

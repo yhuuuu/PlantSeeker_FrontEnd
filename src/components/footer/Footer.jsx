@@ -9,7 +9,7 @@ function Footer() {
                                         <li class="nav-item"><a href="https://www.linkedin.com/in/yutinghu3/" class="nav-link px-2 text-body-secondary"><h6>About</h6></a></li>
                                         <li class="nav-item"><a href="credits" class="nav-link px-2 text-body-secondary"><h6>Credits</h6></a></li>
                                 </ul>
-                                <p class="text-center text-body-secondary">© 2024 Plant Seeker, Inc</p>
+                                <p class="text-center text-body-secondary">© 2024 Plant Seeker</p>
                         </footer>
                 </div>
         )

@@ -13,9 +13,6 @@ import ContactPage from './pages/ContactPage';
 import CreditsPage from './pages/CreditsPage';
 
 
-
-
-
 function App() {
   return (
     <>

@@ -145,7 +145,7 @@ function Identify() {
         <ul className="text-start">
           <li>
             <strong>Upload Your Picture: </strong>
-            Upload an image from your deskstop or image url. (* image must be .jpeg or .png format)
+            Upload an image from your phone, desktop or image url. (* image must be .jpeg or .png format)
           </li>
 
           <li>

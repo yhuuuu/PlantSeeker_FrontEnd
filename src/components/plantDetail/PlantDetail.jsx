@@ -36,42 +36,45 @@ function PlantDetail({ plantData }) {
 
   return (
 
-    <div className="plant-detail-container">
-      <div className="plant-detail-image-container">
-        <PlantImgSlide images={images} />
-      </div>
-
-      <div className="plant-detail-description">
-        <div className="plant-detail-info-container">
-          <div className="plant-detail-info">
-            <h6>Scientific Name:</h6>
-            <p>{species.scientificName}</p>
-          </div>
-          <div className="plant-detail-info">
-            <h6>Common Name:</h6>
-            <p>{species.commonNames[0]}</p>
-          </div>
-          <div className="plant-detail-info">
-            <h6>Family:</h6>
-            <p>{species.family.scientificName}</p>
-          </div>
-          <div className="plant-detail-info">
-            <h6>Genus:</h6>
-            <p>{species.genus.scientificName}</p>
-          </div>
-          <div className="plant-detail-info">
-            <h6>Gbif:</h6>
-            <p>{gbif.id}</p>
-          </div>
+    <div class="container">
+    <div class="row plant-detail-container">
+        <div class="col-md-6 plant-detail-image-container">
+            <PlantImgSlide images={images} />
         </div>
 
-        <div className="plant-detail-addToFavBtn">
-          <button className='plant-detail-addToFavBtn' onClick={handleClick}><img src={whishlistIcon} />{isClicked ? 'Added' : ''}</button>
+        <div class="col-md-6 plant-detail-description">
+            <div class="plant-detail-info-container">
+                <div class="plant-detail-info">
+                    <h6>Scientific Name:</h6>
+                    <p>{species.scientificName}</p>
+                </div>
+                <div class="plant-detail-info">
+                    <h6>Common Name:</h6>
+                    <p>{species.commonNames[0]}</p>
+                </div>
+                <div class="plant-detail-info">
+                    <h6>Family:</h6>
+                    <p>{species.family.scientificName}</p>
+                </div>
+                <div class="plant-detail-info">
+                    <h6>Genus:</h6>
+                    <p>{species.genus.scientificName}</p>
+                </div>
+                <div class="plant-detail-info">
+                    <h6>Gbif:</h6>
+                    <p>{gbif.id}</p>
+                </div>
+            </div>
+
+            <div class="plant-detail-addToFavBtn">
+                <button class="btn btn-primary" onClick={handleClick}>
+                    <img src={whishlistIcon} />
+                    {isClicked ? 'Added' : 'Add to Favorites'}
+                </button>
+            </div>
         </div>
-      </div>
-
-
     </div>
+</div>
 
   )
 }

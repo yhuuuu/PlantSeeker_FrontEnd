@@ -1,26 +1,25 @@
-.plantDisease-card {
+.plantDisease-card-item{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
     background-color: #ffffff; /* Optional: Add background color */
 }
-
 .plantDisease-card h4 {
     margin-bottom: 10px;
 }
 
 .plantDisease-card img {
-    border-radius: 5px; /* Optional: Add border radius to the image */
+    border-radius: 5px; 
 }
 
 .plantDisease-card div {
-    margin-top: 20px; /* Add spacing between each description */
+    margin-top: 20px;
 }
 
 .plantDisease-card h6 {
-    font-size: 18px; /* Adjust font size of subtitles */
+    font-size: 18px; 
 }
 
 .plantDisease-card p {
-    font-size: 16px; /* Adjust font size of description text */
+    font-size: 16px; 
 }

@@ -23,7 +23,7 @@ function IdentifyResultCard({ plant }) {
       }
       const res = await axios.post('https://plantseeker-backend-1.onrender.com/api/favorites', data)
       console.log('add to fav success');
-      //console.log("resdata", res)
+
 
     } catch (error) {
       console.error(error);

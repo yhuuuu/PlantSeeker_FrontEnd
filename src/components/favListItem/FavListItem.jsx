@@ -27,27 +27,6 @@ function FavListItem({ favPlant, setFavList }) {
         }
     }
 
-
-    //function for handle save button
-    // async function handleEditFavItem() {
-    //     try {
-    //         //send PUT request to update the plant information
-    //         await axios.put(`https://plantseeker-backend-1.onrender.com/api/favorites/${_id}`, { notes: editedNotes })
-
-    //         //update the favorite list state after successful update
-    //         setFavList(prevList => prevList.map(plant => {
-    //             if (plant._id === _id) {
-    //                 return { ...plant, notes: editedNotes };
-    //             }
-    //             return plant;
-    //         }))
-    //         //disable editing mode after updating
-    //         setEditing(false)
-    //         console.log('Plant updated');
-    //     } catch (error) {
-    //         console.error('Error updating plant:', error);
-    //     }
-    // }
     async function handleEditFavItem() {
         try {
             await axios.put(`https://plantseeker-backend-1.onrender.com/api/favorites/${_id}`, { notes: editedNotes });

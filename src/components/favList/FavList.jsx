@@ -20,7 +20,7 @@ function FavList() {
 
         })
 
-        console.log('Response:', res.data);
+        // console.log('Response:', res.data);
         // Update the state with fetch data
         setFavList(res.data)
         setIsLoading(false);

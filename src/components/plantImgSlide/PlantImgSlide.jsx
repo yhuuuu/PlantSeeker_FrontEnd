@@ -49,11 +49,8 @@ function PlantImgSlide({ images }) {
             <button onClick={handleNext} className="carousel-button">
                 <img src={arrowBtn} alt="" style={{ width: '30px', height: '30px' }} />
             </button>
-
-        </div>
+        </div>   
     </>
-
-
     )
 }
 

@@ -1,7 +1,7 @@
 
 # PlantSeeker
 
-Welcome to the PlantSeeker App! This application allows users to identify plants by uploading image or providing image URs. It leverages powerful AI technology to analyze image and provide accurate identification results. Whether the user is a seasoned botanist or just starting the journey into the world of plants, this app makes it easy to identify and learn about the flora around them.
+Welcome to the PlantSeeker App! This application allows users to identify plants by uploading image or providing image URLs. It leverages powerful AI technology to analyze image and provide accurate identification results. Whether the user is a seasoned botanist or just starting the journey into the world of plants, this app makes it easy to identify and learn about the flora around them.
 
 ## Features
 

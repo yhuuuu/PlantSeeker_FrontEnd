@@ -1,133 +1,152 @@
-
 # PlantSeeker
 
-Welcome to the PlantSeeker App! This application allows users to identify plants by uploading image or providing image URLs. It leverages powerful AI technology to analyze image and provide accurate identification results. Whether the user is a seasoned botanist or just starting the journey into the world of plants, this app makes it easy to identify and learn about the flora around them.
+Welcome to the PlantSeeker App! This application empowers users to identify plants by either uploading images or providing image URLs. It leverages advanced AI technology to analyze images and deliver accurate identification results. Whether you are a seasoned botanist or a plant enthusiast starting your journey, PlantSeeker makes it easy to identify and learn about plants around you.
 
 ## Features
 
-- **Image Upload**: Users can upload images of plants from their desktop.
-- **Image URL Search**: Users can search for plant images using URLs.
-- **Instant Identification**: The app uses advanced AI technology to analyze images and provide instant identification results.
-- **Plant Details**: Users can explore detailed information about identified plants, including species, common names, scientific names, and more.
-- **Favorites List**: Users can save their favorite plants to a personalized list for future reference.
-- **Educational Resources**: The app provides resources for learning about plant diseases(current feature), gardening tips, and interesting plant facts(later features)
-
+- **Image Upload:** Upload plant images directly from your desktop.
+- **Image URL Search:** Search for plants by providing image URLs.
+- **Instant Identification:** Advanced AI technology processes the images instantly.
+- **Plant Details:** Explore detailed information including species, common names, and scientific names.
+- **Favorites List:** Save your favorite plants for quick access later.
+- **Educational Resources:** Learn about plant diseases (current feature), gardening tips, and interesting plant facts (upcoming features).
 
 ## Usage
 
-- To identify a plant, upload an image or provide an image URL.
-- Explore detailed information about identified plants.
-- Save favorite plants to your personalized list.
+- Upload a plant image or input an image URL to identify a plant.
+- View detailed information about the identified plants.
+- Add plants to your personalized favorites list for future reference.
 
-- **Image Upload**: Users can upload images of plants from their desktop.
-- **Image URL Search**: Users can search for plant images using URLs.
-- **Instant Identification**: The app uses advanced AI technology to analyze images and provide instant identification results.
-- **Plant Details**: Users can explore detailed information about identified plants, including species, common names, scientific names, and more.
-- **Favorites List**: Users can save their favorite plants to a personalized list for future reference.
-- **Educational Resources**: The app provides resources for learning about plant diseases(current feature), gardening tips, and interesting plant facts(later features)
+## API Key Setup and Configuration
 
-- **Description**: Perenual API provides a comprehensive list of plant diseases along with detailed information about each disease, including images, explanations, and causes.
-- **API Key**: To use the Perenual API, you must sign up for an account on the [Perenual website](https://perenual.com/docs/api) and generate your private API key from the developer page.
-- **Documentation**: Explore the documentation for the Perenual API [here](https://www.postman.com/navigation-technologist-14869750/workspace/perenual/collection/22777343-5201deb7-c168-47a5-bc9b-2693c2662f05?action=share&creator=22777343).
+To use PlantSeeker with the integrated third-party APIs, you need to obtain and configure your own API keys.
 
-## BackEnd API
+### Pl@ntNet API
 
-#### Get all favorites
-```http
-  GET /api/favorites
-```
-#### Add a plant to favorites 
+1. **Sign Up:**  
+   Visit the [Pl@ntNet developer portal](https://my.plantnet.org/) and create an account.
 
-```http
-  POST /api/favorites
-```
+2. **Generate API Key:**  
+   After logging in, go to the API key settings page and generate a private API key.
 
-#### Update a plant from favorites 
+3. **Configure API Key Settings:**  
+   - Enable **"Expose my API key"** to allow the frontend application to access the API.  
+   - Add your authorized domains or IP addresses to restrict API key usage and avoid unauthorized requests. This is crucial for testing and deployment to prevent CORS and security issues.
 
-```http
-  PUT /api/favorites/:id'
-```
+4. **Environment Variable:**  
+   Set your API key in local development by creating a `.env` file with the following entry:
+VITE_API_KEY=your_actual_plantnet_api_key_here
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to update|
+text
+Similarly, configure this environment variable on your hosting/deployment platform.
 
-#### DELETE a plant from favorites 
+### Perenual API
 
-```http
-  DELETE /api/favorites/:id'
-```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to delete|
+- Sign up at [Perenual API website](https://perenual.com/docs/api) to obtain an API key.
+- Refer to the [Perenual API documentation](https://www.postman.com/navigation-technologist-14869750/workspace/perenual/collection/22777343-5201deb7-c168-47a5-bc9b-2693c2662f05?action=share&creator=22777343) for detailed use.
 
+---
+
+## Backend API Endpoints
+
+| Endpoint            | Method | Description                     | Parameters                             |
+|---------------------|--------|---------------------------------|--------------------------------------|
+| `/api/favorites`    | GET    | Retrieve all favorite plants    | None                                 |
+| `/api/favorites`    | POST   | Add a new plant to favorites    | JSON body with plant details         |
+| `/api/favorites/:id`| PUT    | Update a favorite plant by ID   | `id` (string): Plant ID to update    |
+| `/api/favorites/:id`| DELETE | Delete a favorite plant by ID   | `id` (string): Plant ID to delete    |
+
+---
 
 ## Technologies Used
 
-- **React**: Frontend framework for building user interfaces.
-- **Axios**: HTTP client for making requests to the backend API.
-- **MongoDB**: Source-available, cross-platform, document-oriented database program
-- **Moongoose**: JavaScript object-oriented programming library that creates a connection between MongoDB and the Node.js
-- **Session Storage**: Used for storing previous search results to maintain state across page refreshes.
-- **CSS**: Styling the user interface.
+- **React:** Frontend UI development.
+- **Axios:** HTTP client for API requests.
+- **MongoDB:** Document-oriented database.
+- **Mongoose:** Object Data Modeling (ODM) for MongoDB and Node.js.
+- **Session Storage:** Persist search results across page refreshes.
+- **CSS:** Styling and interface design.
 
+---
 
 ## Installation
 
-1. Clone the repository:
-```
-git clone <https://github.com/yhuuuu/PlantSeeker_FrontEnd>
-```
+1. Clone the frontend repository:
 
-2. Clone the backEnd API
-```
-git clone <https://github.com/yhuuuu/PlantSeeker_BackEnd>
-```
+git clone https://github.com/yhuuuu/PlantSeeker_FrontEnd.git
 
-3. Install dependencies:
-```
-  npm i
-```
-4. Run the application:
-```
-FrontEnd - npm run dev
-BackEnd - npm start
-```
+text
 
-5. Open the app in your browser
+2. Clone the backend repository:
 
+git clone https://github.com/yhuuuu/PlantSeeker_BackEnd.git
+
+text
+
+3. Install dependencies for both frontend and backend:
+
+npm install
+
+text
+
+4. Run the applications:
+
+- Frontend:
+
+  ```
+  npm run dev
+  ```
+
+- Backend:
+
+  ```
+  npm start
+  ```
+
+5. Open your browser and visit the frontend app URL (usually `http://localhost:5173`).
+
+---
 
 ## Lessons Learned
 
-#### 1. Integration of Third-Party APIs:
-Integrating third-party APIs like Pl@ntNet and Perenual required understanding their documentation, handling authentication, CORS errors and processing API responses effectively. I overcame this challenge by carefully reading the API documentation, testing API requests using tools like Postman and Thunder Client, and implementing the API calls in my project.
+### 1. Integration of Third-Party APIs
 
+Successfully integrated APIs like Pl@ntNet and Perenual by thoroughly studying their documentation, handling authentication, CORS, and response structures.
 
-#### 2. State Management in React:
- Managing state effectively in a React application, especially handling asynchronous operations like API requests and loading states, was a challenge. I used React hooks like useState and useEffect to manage component state and lifecycle effectively. Additionally, I used conditional rendering to display loading spinners or fetched data based on the application state.
+### 2. State Management in React
 
-#### 3. Handling Page Navigation and State Preservation: 
-Preserving previous search results when navigating back to the search page posed a challenge. I addressed this challenge by storing the search results in session storage when they were fetched and retrieving them when the search page was revisited. By using session storage, I ensured that the previous search results were available even after navigating away from the page.
+Effectively managed asynchronous API operations with React hooks (`useState`, `useEffect`) and implemented conditional rendering for better UI responsiveness.
 
-#### 4. Handling FormData for Image Uploads:
-Incorporating FormData to handle image uploads presented its own set of challenges. Understanding how to create and manipulate FormData objects and append files to them was essential for properly sending image data to the server.
+### 3. Navigation and State Preservation
 
-#### 5. Combining Object State and FormData:
-Combining the use of object state for passing data between routes and FormData for handling image uploads required careful management. Ensuring that the data was correctly formatted and transmitted to the server while maintaining accessibility across components was crucial for a smooth user experience.
+Used session storage for persisting search results to enhance user experience when navigating between pages.
 
-#### 5. Error Handling: 
-Implementing robust error handling mechanisms for API requests and other asynchronous operations was crucial to provide a smooth user experience. I handled errors by using try-catch blocks and sending appropriate error responses to the client. Additionally, I implemented error logging to track and debug issues effectively.
+### 4. Handling Image Uploads Using FormData
 
-#### 5.UI/UX Design: 
-Designing a user-friendly interface and ensuring a seamless user experience was essential. I focused on creating intuitive user interfaces, providing clear feedback for user actions, and optimizing the application's performance. I used CSS frameworks like Bootstrap and custom styling to enhance the visual appeal of the application.
+Mastered usage of `FormData` objects for proper image uploads to backend services.
 
+### 5. Combining Object State and FormData
 
+Maintained smooth data flow across components combining React state and FormData handling.
 
+### 6. Robust Error Handling
+
+Implemented comprehensive error handling with try-catch blocks and backend error logging to ensure reliable app performance.
+
+### 7. UI/UX Design Focus
+
+Crafted intuitive user interfaces leveraging Bootstrap and custom CSS to provide a polished and responsive experience.
+
+---
 
 ## Appendix
 
-- **Icon**: https://www.flaticon.com/free-icon/
-- **PlantNetAPI**: https://my.plantnet.org/ 
-- **Perenual**: https://perenual.com/
-- **Huemint**: https://huemint.com/website-2/
-- **Save State to LocalStorage & Persist on Refresh with React.js**: https://www.youtube.com/watch?v=rWfhwW9forg&t=2
+- Icons: [Flaticon](https://www.flaticon.com/free-icon/)
+- [PlantNet API](https://my.plantnet.org/)
+- [Perenual API](https://perenual.com/)
+- [Huemint](https://huemint.com/website-2/)
+- React state persistence tutorial: [YouTube](https://www.youtube.com/watch?v=rWfhwW9forg&t=2)
+
+---
+
+Feel free to contribute or report issues for improvements!

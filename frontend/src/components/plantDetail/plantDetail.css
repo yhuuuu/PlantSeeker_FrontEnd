@@ -1,0 +1,54 @@
+.plant-detail-container {
+  padding: 20px;
+  background-color: #b4bfa483;
+  border: 20px solid #edffc2ad;
+  border-radius: 20px;
+  margin: 20px 0px;
+}
+
+.plant-detail-info h6 {
+  margin: 5px 0;
+}
+
+.plant-detail-image-container img {
+  margin: -8px;
+  padding: 2px;
+  margin-top: 20px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
+  margin-bottom: 10px;
+  border: 5px solid rgba(255, 255, 255, 0.887);
+}
+
+.plant-detail-addToFavBtn {
+  background-color: transparent;
+  border: 0;
+  font-size: 15px;
+  display: inline-flex;
+}
+
+.plant-detail-info-container {
+  width: 90%;
+} 
+
+
+.plant-detail-description {
+  text-align: left;
+  padding: 40px;
+  background-color: #ebe2d3;
+  border: 5px dashed rgba(255, 255, 255, 0.887);
+  border-radius: 40px;
+  display: flex;
+  max-width: 550px;
+  max-height: 450px;
+
+  margin-top: 20px;
+}
+
+.wishlist-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+ 
+}

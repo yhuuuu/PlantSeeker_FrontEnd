@@ -25,7 +25,7 @@ function Identify() {
 
   // Function to fetch API by image url
   async function handleApiSearchByURL() {
-    
+
     if (!imgUrl) {
       setIsLoading(false)
       alert('Please enter a image URL.')
@@ -68,7 +68,7 @@ function Identify() {
 
     } else {
       setIsLoading(true)
-      
+
       //used to add the selected image file to the FormData object with the key 'images'. Iimage data is prepared to be sent as part of the POST request to the API endpoint.
       const formData = new FormData();
       formData.append('images', selectedFile);
@@ -81,13 +81,14 @@ function Identify() {
             'include-related-images': true,
             'no-reject': false,
             'lang': 'en',
-            'api-key': API_KEY,
+             'api-key': API_KEY,
 
           },
           data: formData,
           headers: {
             'Content-Type': 'multipart/form-data'
           }
+          
         })
 
         //console.log('data', response.data);
@@ -114,7 +115,7 @@ function Identify() {
   const handleInputImgURLChange = (e) => {
     setImgeUrl(e.target.value)
   }
-  
+
   // Function to set search method and excute the corresponding search
   const handleSearch = (method) => {
     setSearchMethod(method)

@@ -69,7 +69,7 @@ function PlantDetail({ plantData }) {
                 </div>
                 <div className="plant-detail-addToFavBtn">
                     <button className='plant-detail-addToFavBtn' onClick={handleClick}>
-                        <img src={whishlistIcon} />{isClicked ? 'Added' : ''}
+                        <img className="wishlist-icon" src={whishlistIcon} />{isClicked ? 'Added' : ''}
                     </button>
                 </div>
             </div>

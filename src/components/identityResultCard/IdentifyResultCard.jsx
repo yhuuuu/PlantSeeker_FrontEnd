@@ -35,6 +35,10 @@ function IdentifyResultCard({ plant }) {
     setIsClicked(true)
     addToFavorites()
   }
+  if (!plant || !plant.gbif) {
+  return null; 
+}
+
 
   return (
     <div className="plantReuslt-container">
